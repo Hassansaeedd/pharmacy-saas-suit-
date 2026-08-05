@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+/* ============================================================
+   PHARMAFLOW — Pharmacy Theme
+   Clean white/light medical design with green accents
+   ============================================================ */
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #f0f9f4;
+    background-image:
+      radial-gradient(at 0% 0%, rgba(22, 163, 74, 0.06) 0px, transparent 60%),
+      radial-gradient(at 100% 100%, rgba(5, 150, 105, 0.04) 0px, transparent 60%);
+    color: #1a2e22;
+    min-height: 100vh;
+  }
+}
+
+/* ============================================================
+   Design Tokens
+   ============================================================ */
+:root {
+  /* Brand Greens */
+  --ph-green-50:  #f0fdf4;
+  --ph-green-100: #dcfce7;
+  --ph-green-200: #bbf7d0;
+  --ph-green-400: #4ade80;
+  --ph-green-500: #22c55e;
+  --ph-green-600: #16a34a;
+  --ph-green-700: #15803d;
+  --ph-green-800: #166534;
+  --ph-green-900: #14532d;
+
+  /* Neutrals */
+  --ph-white:     #ffffff;
+  --ph-gray-50:   #f9fafb;
+  --ph-gray-100:  #f3f4f6;
+  --ph-gray-200:  #e5e7eb;
+  --ph-gray-300:  #d1d5db;
+  --ph-gray-400:  #9ca3af;
+  --ph-gray-500:  #6b7280;
+  --ph-gray-600:  #4b5563;
+  --ph-gray-700:  #374151;
+  --ph-gray-800:  #1f2937;
+  --ph-gray-900:  #111827;
+
+  /* Accent */
+  --ph-teal-500:  #14b8a6;
+  --ph-teal-600:  #0d9488;
+  --ph-blue-500:  #3b82f6;
+
+  /* Status */
+  --ph-amber-400: #fbbf24;
+  --ph-amber-500: #f59e0b;
+  --ph-rose-400:  #fb7185;
+  --ph-rose-500:  #ef4444;
+}
+
+/* ============================================================
+   Layout Components
+   ============================================================ */
+
+/* App Shell */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--ph-gray-50);
+}
+
+/* Sidebar */
+.ph-sidebar {
+  width: 260px;
+  background: var(--ph-white);
+  border-right: 1px solid var(--ph-gray-200);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.ph-navbar {
+  height: 64px;
+  background: var(--ph-white);
+  border-bottom: 1px solid var(--ph-gray-200);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* Cards */
+.ph-card {
+  background: var(--ph-white);
+  border: 1px solid var(--ph-gray-200);
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.ph-card:hover {
+  box-shadow: 0 4px 16px rgba(22, 163, 74, 0.1), 0 1px 4px rgba(0, 0, 0, 0.05);
+  border-color: var(--ph-green-200);
+}
+
+/* Form Inputs */
+.ph-input {
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--ph-white);
+  border: 1px solid var(--ph-gray-300);
+  border-radius: 8px;
+  color: var(--ph-gray-800);
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.ph-input:focus {
+  outline: none;
+  border-color: var(--ph-green-500);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+}
+
+.ph-input::placeholder {
+  color: var(--ph-gray-400);
+}
+
+/* Buttons */
+.ph-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, var(--ph-green-500) 0%, var(--ph-green-600) 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.3);
+}
+
+.ph-btn-primary:hover {
+  background: linear-gradient(135deg, var(--ph-green-600) 0%, var(--ph-green-700) 100%);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.4);
+  transform: translateY(-1px);
+}
+
+.ph-btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.ph-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--ph-white);
+  color: var(--ph-green-700);
+  border: 1px solid var(--ph-green-300);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ph-btn-secondary:hover {
+  background: var(--ph-green-50);
+  border-color: var(--ph-green-500);
+}
+
+/* KPI Stat Cards */
+.ph-stat-card {
+  background: var(--ph-white);
+  border: 1px solid var(--ph-gray-200);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ph-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.ph-stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ph-green-500), var(--ph-teal-500));
+}
+
+/* Auth pages */
+.ph-auth-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 40%, #ecfdf5 100%);
+  position: relative;
+}
+
+.ph-auth-bg::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(22, 163, 74, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(20, 184, 166, 0.10) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2316a34a' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.ph-auth-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(22, 163, 74, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(22, 163, 74, 0.12), 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* Nav items */
+.ph-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ph-gray-600);
+  text-decoration: none;
+  transition: all 0.15s ease;
+  margin-bottom: 2px;
+}
+
+.ph-nav-item:hover {
+  background: var(--ph-green-50);
+  color: var(--ph-green-700);
+}
+
+.ph-nav-item.active {
+  background: var(--ph-green-600);
+  color: white;
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.3);
+}
+
+/* Badge */
+.ph-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.ph-badge-green {
+  background: var(--ph-green-100);
+  color: var(--ph-green-700);
+  border: 1px solid var(--ph-green-200);
+}
+
+.ph-badge-amber {
+  background: #fffbeb;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+.ph-badge-red {
+  background: #fff1f2;
+  color: #be123c;
+  border: 1px solid #fecdd3;
+}
+
+/* Table styles */
+.ph-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.ph-table thead th {
+  background: var(--ph-gray-50);
+  color: var(--ph-gray-500);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--ph-gray-200);
+  text-align: left;
+}
+
+.ph-table tbody tr {
+  border-bottom: 1px solid var(--ph-gray-100);
+  transition: background 0.15s ease;
+}
+
+.ph-table tbody tr:hover {
+  background: var(--ph-green-50);
+}
+
+.ph-table tbody td {
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--ph-gray-700);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--ph-gray-100); }
+::-webkit-scrollbar-thumb { background: var(--ph-gray-300); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ph-green-400); }
+
+/* Utility animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fadeIn 0.25s ease forwards; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+.animate-spin { animation: spin 1s linear infinite; }

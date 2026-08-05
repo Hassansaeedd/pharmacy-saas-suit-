@@ -1,0 +1,101 @@
+brand_name,generic_name,category,sale_price
+Panadol 500mg,Paracetamol,tablet,40.00
+Panadol Extra,Paracetamol + Caffeine,tablet,60.00
+Panadol CF,Paracetamol + Pseudoephedrine,tablet,70.00
+Disprin 300mg,Aspirin,tablet,25.00
+Ponstan 250mg,Mefenamic Acid,capsule,50.00
+Ponstan Forte 500mg,Mefenamic Acid,tablet,85.00
+Brufen 200mg,Ibuprofen,tablet,35.00
+Brufen 400mg,Ibuprofen,tablet,55.00
+Brufen Syrup 120ml,Ibuprofen,syrup,110.00
+Calpol Syrup 90ml,Paracetamol,syrup,90.00
+Voltral 50mg,Diclofenac Sodium,tablet,75.00
+Voltral Emulgel 20g,Diclofenac Diethylamine,topical,190.00
+Febrol 500mg,Paracetamol,tablet,30.00
+Synflex 550mg,Naproxen Sodium,tablet,130.00
+Tramal 50mg,Tramadol Hydrochloride,capsule,170.00
+Augmentin 375mg,Co-Amoxiclav,tablet,290.00
+Augmentin 625mg,Co-Amoxiclav,tablet,410.00
+Augmentin 1g,Co-Amoxiclav,tablet,580.00
+Augmentin DS Syrup 156.25mg,Co-Amoxiclav,syrup,240.00
+Amoxil 250mg,Amoxicillin,capsule,95.00
+Amoxil 500mg,Amoxicillin,capsule,160.00
+Velosef 250mg,Cephradine,capsule,150.00
+Velosef 500mg,Cephradine,capsule,250.00
+Ciproxin 250mg,Ciprofloxacin,tablet,190.00
+Ciproxin 500mg,Ciprofloxacin,tablet,320.00
+Flagyl 200mg,Metronidazole,tablet,45.00
+Flagyl 400mg,Metronidazole,tablet,70.00
+Flagyl Suspension 90ml,Metronidazole,syrup,85.00
+Klaricid 250mg,Clarithromycin,tablet,420.00
+Klaricid 500mg,Clarithromycin,tablet,720.00
+Zithromax 250mg,Azithromycin,capsule,370.00
+Azomax 500mg,Azithromycin,capsule,450.00
+Leflox 250mg,Levofloxacin,tablet,280.00
+Leflox 500mg,Levofloxacin,tablet,490.00
+Risek 20mg,Omeprazole,capsule,160.00
+Risek 40mg,Omeprazole,capsule,270.00
+Nexum 20mg,Esomeprazole,tablet,200.00
+Nexum 40mg,Esomeprazole,tablet,340.00
+Entamizole 250mg,Diloxanide + Metronidazole,tablet,65.00
+Entamizole DS,Diloxanide + Metronidazole,tablet,105.00
+Gaviscon Liquid 120ml,Sodium Alginate + Antacid,syrup,220.00
+Gravinate 50mg,Dimenhydrinate,tablet,38.00
+Gravinate Syrup 60ml,Dimenhydrinate,syrup,70.00
+Motilium 10mg,Domperidone,tablet,90.00
+Spasler P,Tiemonium Methylsulfate,tablet,110.00
+Zantac 150mg,Ranitidine,tablet,60.00
+Loprin 75mg,Aspirin (Low Dose),tablet,30.00
+Loprin 150mg,Aspirin,tablet,45.00
+Capoten 25mg,Captopril,tablet,85.00
+Tenormin 50mg,Atenolol,tablet,125.00
+Norvasc 5mg,Amlodipine,tablet,150.00
+Norvasc 10mg,Amlodipine,tablet,240.00
+Concor 2.5mg,Bisoprolol Fumarate,tablet,175.00
+Concor 5mg,Bisoprolol Fumarate,tablet,290.00
+Exforge 5/80mg,Amlodipine + Valsartan,tablet,720.00
+Inderal 10mg,Propranolol,tablet,38.00
+Coversyl 4mg,Perindopril,tablet,490.00
+Glucophage 500mg,Metformin HCl,tablet,45.00
+Glucophage 850mg,Metformin HCl,tablet,65.00
+Glucophage XR 1000mg,Metformin Extended Release,tablet,125.00
+Amaryl 1mg,Glimepiride,tablet,110.00
+Amaryl 2mg,Glimepiride,tablet,175.00
+Janumet 50/500mg,Sitagliptin + Metformin,tablet,840.00
+Galvus Met 50/500mg,Vildagliptin + Metformin,tablet,760.00
+Diamicron MR 60mg,Gliclazide,tablet,280.00
+Softin 10mg,Loratadine,tablet,65.00
+Zyrtec 10mg,Cetirizine HCl,tablet,85.00
+Rigix 10mg,Cetirizine HCl,tablet,70.00
+Ventolin Inhaler 100mcg,Salbutamol,topical,290.00
+Ventolin Syrup 120ml,Salbutamol,syrup,90.00
+Acefyl Cough Syrup 120ml,Acefyline Piperazine,syrup,105.00
+Hydryllin Syrup 120ml,Aminophylline + Diphenhydramine,syrup,95.00
+Telfast 120mg,Fexofenadine,tablet,215.00
+Monteka 10mg,Montelukast,tablet,240.00
+Sangobion Capsules,Iron + Folic Acid + B Complex,capsule,125.00
+CAC-1000 Plus Effervescent,Calcium + Vitamin C + D3,tablet,290.00
+Surbex Z,Zinc + B Complex + Vitamin C,tablet,410.00
+Neurobion,Vitamin B1 + B6 + B12,tablet,115.00
+Evion 400mg,Vitamin E (Tocopheryl Acetate),capsule,95.00
+Osteocare,Calcium + Magnesium + Vitamin D3,tablet,490.00
+Theragran-M,Multivitamins + Minerals,tablet,350.00
+Fefol Vit,Iron + Folic Acid + Vit C,capsule,135.00
+Polyfax Ointment 20g,Polymyxin B + Bacitracin,topical,110.00
+Polyfax Eye Ointment 4g,Polymyxin B + Bacitracin,topical,70.00
+Betnovate Cream 15g,Betamethasone Valerate,topical,95.00
+Betnovate N Cream 15g,Betamethasone + Neomycin,topical,115.00
+Dermovate Cream 15g,Clobetasol Propionate,topical,150.00
+Canesten Cream 20g,Clotrimazole,topical,175.00
+Fucidin Cream 15g,Fusidic Acid,topical,250.00
+Terbiderm Cream 10g,Terbinafine HCl,topical,190.00
+Tobrex Eye Drops 5ml,Tobramycin,drops,215.00
+Ciplox Eye/Ear Drops 5ml,Ciprofloxacin,drops,90.00
+Otrivin Adult Nasal Spray 10ml,Xylometazoline HCl,drops,150.00
+Otrivin Pediatric Drops 10ml,Xylometazoline HCl,drops,125.00
+Lexotanil 3mg,Bromazepam,tablet,140.00
+Xanax 0.5mg,Alprazolam,tablet,160.00
+Rivotril 2mg,Clonazepam,tablet,190.00
+Serpaz 10mg,Serrapeptase,tablet,130.00
+Avomine 25mg,Promethazine,tablet,50.00
+Pyodine Solution 60ml,Povidone Iodine,topical,95.00

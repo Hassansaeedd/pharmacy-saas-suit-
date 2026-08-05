@@ -1,0 +1,24 @@
+# Node / Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+.env.local
+.env.*.local
+
+# Python / Backend
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+*.sqlite3
+*.db
+
+# Antigravity / IDE / OS
+.gemini/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
