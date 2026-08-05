@@ -9,6 +9,8 @@ import {
   BrainCircuit,
   AlertTriangle,
   MessageSquare,
+  Building2,
+  ShieldCheck,
   X
 } from 'lucide-react';
 
@@ -19,9 +21,23 @@ interface SidebarProps {
 
 export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const { user } = useAuth();
+  const isSuperAdmin = user?.role === 'super_admin';
   const isOwner = user?.role === 'owner_pharmacist';
 
-  const navItems = [
+  interface NavItem {
+    label: string;
+    path: string;
+    icon: any;
+    ownerOnly?: boolean;
+  }
+
+  // Super Admin Navigation (Only platform tenant administration)
+  const adminNavItems: NavItem[] = [
+    { label: 'Pharmacy Tenants', path: '/admin', icon: Building2 },
+  ];
+
+  // Pharmacy Operational Navigation (Sales, Inventory, Billing)
+  const pharmacyNavItems: NavItem[] = [
     { label: 'Dashboard', path: '/', icon: LayoutDashboard },
     { label: 'POS Counter', path: '/pos', icon: ShoppingCart },
     { label: 'Medicines & Catalog', path: '/inventory', icon: Pill },
@@ -30,6 +46,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     { label: 'AI Forecasting', path: '/forecasting', icon: BrainCircuit, ownerOnly: true },
     { label: 'WhatsApp Bot', path: '/whatsapp', icon: MessageSquare, ownerOnly: true },
   ];
+
+  const currentNavItems = isSuperAdmin ? adminNavItems : pharmacyNavItems;
 
   return (
     <>
@@ -64,17 +82,26 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
 
         {/* Role Badge */}
         <div className="px-4 py-3 border-b border-gray-100 hidden md:block">
-          <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-green-50 border border-green-200">
-            <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">
-              {isOwner ? 'Owner Console' : 'Counter POS'}
-            </span>
-            <span className={`w-2 h-2 rounded-full ${isOwner ? 'bg-green-500 animate-pulse' : 'bg-teal-400'}`} />
-          </div>
+          {isSuperAdmin ? (
+            <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-emerald-50 border border-emerald-200">
+              <span className="text-xs font-bold text-emerald-800 uppercase tracking-wider flex items-center gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> Super Admin
+              </span>
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            </div>
+          ) : (
+            <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-green-50 border border-green-200">
+              <span className="text-xs font-semibold text-green-700 uppercase tracking-wider">
+                {isOwner ? 'Owner Console' : 'Counter POS'}
+              </span>
+              <span className={`w-2 h-2 rounded-full ${isOwner ? 'bg-green-500 animate-pulse' : 'bg-teal-400'}`} />
+            </div>
+          )}
         </div>
 
         {/* Navigation */}
         <nav className="flex-1 p-3 space-y-0.5 overflow-y-auto">
-          {navItems.map((item) => {
+          {currentNavItems.map((item) => {
             if (item.ownerOnly && !isOwner) return null;
             const Icon = item.icon;
             return (
@@ -86,7 +113,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                 className={({ isActive }) =>
                   `flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all duration-150 ${
                     isActive
-                      ? 'bg-green-600 text-white shadow-md shadow-green-500/20'
+                      ? isSuperAdmin
+                        ? 'bg-emerald-700 text-white shadow-md shadow-emerald-700/20'
+                        : 'bg-green-600 text-white shadow-md shadow-green-500/20'
                       : 'text-gray-600 hover:text-green-700 hover:bg-green-50'
                   }`
                 }
@@ -100,15 +129,26 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
 
         {/* Footer Info */}
         <div className="p-4 border-t border-gray-100">
-          <div className="p-3 rounded-xl bg-green-50 border border-green-200">
-            <div className="flex items-center gap-2 text-xs font-bold text-green-700">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shrink-0" />
-              FEFO Stock Management
+          {isSuperAdmin ? (
+            <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200">
+              <div className="flex items-center gap-2 text-xs font-bold text-emerald-800">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> Platform Admin
+              </div>
+              <p className="text-[11px] text-emerald-700/80 mt-1 leading-snug">
+                Managing multi-tenant pharmacy accounts across Pakistan.
+              </p>
             </div>
-            <p className="text-[11px] text-gray-500 mt-1 leading-snug">
-              Stock deducted from earliest-expiring batches first.
-            </p>
-          </div>
+          ) : (
+            <div className="p-3 rounded-xl bg-green-50 border border-green-200">
+              <div className="flex items-center gap-2 text-xs font-bold text-green-700">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shrink-0" />
+                FEFO Stock Management
+              </div>
+              <p className="text-[11px] text-gray-500 mt-1 leading-snug">
+                Stock deducted from earliest-expiring batches first.
+              </p>
+            </div>
+          )}
         </div>
       </aside>
     </>

@@ -1,4 +1,4 @@
-export type UserRole = 'owner_pharmacist' | 'counter_staff';
+export type UserRole = 'super_admin' | 'owner_pharmacist' | 'counter_staff';
 
 export interface User {
   id: number;

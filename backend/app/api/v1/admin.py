@@ -18,7 +18,7 @@ router = APIRouter()
 
 @router.get("/pharmacies")
 async def list_all_pharmacies(
-    current_user: User = Depends(require_roles(["owner_pharmacist"])),
+    current_user: User = Depends(require_roles(["super_admin", "owner_pharmacist"])),
     db: AsyncSession = Depends(get_db)
 ):
     """
@@ -60,7 +60,7 @@ async def list_all_pharmacies(
 @router.post("/pharmacies", status_code=status.HTTP_201_CREATED)
 async def admin_create_pharmacy(
     data: BusinessOnboard,
-    current_user: User = Depends(require_roles(["owner_pharmacist"])),
+    current_user: User = Depends(require_roles(["super_admin", "owner_pharmacist"])),
     db: AsyncSession = Depends(get_db)
 ):
     """
@@ -99,7 +99,7 @@ async def admin_create_pharmacy(
 @router.delete("/pharmacies/{business_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def admin_delete_pharmacy(
     business_id: int,
-    current_user: User = Depends(require_roles(["owner_pharmacist"])),
+    current_user: User = Depends(require_roles(["super_admin", "owner_pharmacist"])),
     db: AsyncSession = Depends(get_db)
 ):
     """

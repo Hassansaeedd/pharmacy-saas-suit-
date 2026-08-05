@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
+import { AuthProvider, useAuth } from './context/AuthContext';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { Navbar } from './components/Navbar';
 import { Sidebar } from './components/Sidebar';
@@ -31,6 +31,24 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   );
 };
 
+// Route wrapper for root "/" — redirects Super Admin to /admin, others to Dashboard
+const HomeRoute: React.FC = () => {
+  const { user } = useAuth();
+  if (user?.role === 'super_admin') {
+    return <Navigate to="/admin" replace />;
+  }
+  return <DashboardPage />;
+};
+
+// Guard for pharmacy operational pages (POS, Inventory, Expiry, etc.)
+const PharmacyOnlyPage: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const { user } = useAuth();
+  if (user?.role === 'super_admin') {
+    return <Navigate to="/admin" replace />;
+  }
+  return <>{children}</>;
+};
+
 export function App() {
   return (
     <AuthProvider>
@@ -46,7 +64,7 @@ export function App() {
               path="/"
               element={
                 <AppLayout>
-                  <DashboardPage />
+                  <HomeRoute />
                 </AppLayout>
               }
             />
@@ -54,7 +72,9 @@ export function App() {
               path="/inventory"
               element={
                 <AppLayout>
-                  <InventoryPage />
+                  <PharmacyOnlyPage>
+                    <InventoryPage />
+                  </PharmacyOnlyPage>
                 </AppLayout>
               }
             />
@@ -62,7 +82,9 @@ export function App() {
               path="/pos"
               element={
                 <AppLayout>
-                  <POSPage />
+                  <PharmacyOnlyPage>
+                    <POSPage />
+                  </PharmacyOnlyPage>
                 </AppLayout>
               }
             />
@@ -70,7 +92,9 @@ export function App() {
               path="/reports"
               element={
                 <AppLayout>
-                  <ReportsPage />
+                  <PharmacyOnlyPage>
+                    <ReportsPage />
+                  </PharmacyOnlyPage>
                 </AppLayout>
               }
             />
@@ -78,7 +102,9 @@ export function App() {
               path="/expiry"
               element={
                 <AppLayout>
-                  <ExpiryPage />
+                  <PharmacyOnlyPage>
+                    <ExpiryPage />
+                  </PharmacyOnlyPage>
                 </AppLayout>
               }
             />
@@ -86,7 +112,9 @@ export function App() {
               path="/forecasting"
               element={
                 <AppLayout>
-                  <ForecastingPage />
+                  <PharmacyOnlyPage>
+                    <ForecastingPage />
+                  </PharmacyOnlyPage>
                 </AppLayout>
               }
             />
@@ -94,7 +122,9 @@ export function App() {
               path="/whatsapp"
               element={
                 <AppLayout>
-                  <WhatsAppPage />
+                  <PharmacyOnlyPage>
+                    <WhatsAppPage />
+                  </PharmacyOnlyPage>
                 </AppLayout>
               }
             />
