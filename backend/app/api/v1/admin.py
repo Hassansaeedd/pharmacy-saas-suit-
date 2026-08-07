@@ -110,5 +110,8 @@ async def admin_delete_pharmacy(
     if not biz:
         raise HTTPException(status_code=404, detail="Pharmacy not found")
 
+    if biz.id == current_user.business_id:
+        raise HTTPException(status_code=400, detail="Cannot delete Super Admin System HQ tenant")
+
     await db.delete(biz)
     await db.commit()

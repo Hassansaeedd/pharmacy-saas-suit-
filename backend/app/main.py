@@ -12,6 +12,37 @@ async def lifespan(app: FastAPI):
     # Startup: Create tables if sqlite/dev mode
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+    
+    # Auto-seed Super Admin account if missing
+    from app.core.db import AsyncSessionLocal
+    from app.models.business import Business
+    from app.models.user import User
+    from app.core.security import get_password_hash
+    from sqlalchemy import select
+
+    async with AsyncSessionLocal() as db:
+        res = await db.execute(select(User).where(User.email == "admin@pharmaflow.pk"))
+        if not res.scalar_one_or_none():
+            biz = Business(
+                name="PharmaFlow Admin HQ",
+                license_number="ADMIN-0001",
+                address="Headquarters, Lahore",
+                contact="0300-0000000",
+                subscription_tier="pro",
+                subscription_status="active"
+            )
+            db.add(biz)
+            await db.flush()
+            user = User(
+                business_id=biz.id,
+                full_name="Super Admin",
+                email="admin@pharmaflow.pk",
+                password_hash=get_password_hash("Admin123!"),
+                role="super_admin"
+            )
+            db.add(user)
+            await db.commit()
+
     yield
     # Shutdown
     await engine.dispose()
