@@ -2,7 +2,7 @@ import os
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
-    PROJECT_NAME: str = "PharmaFlow"
+    PROJECT_NAME: str = "CuraRx"
     API_V1_STR: str = "/api/v1"
     SECRET_KEY: str = os.getenv("SECRET_KEY", "pharmaflow-super-secret-jwt-key-2026-pakistan")
     ALGORITHM: str = "HS256"

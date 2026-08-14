@@ -1,7 +1,7 @@
 services:
-  # Backend API Service
+  # CuraRx Backend API — deployed on Render (Python / FastAPI)
   - type: web
-    name: pharmaflow-backend
+    name: curarx-backend
     env: python
     plan: free
     rootDir: backend
@@ -11,17 +11,7 @@ services:
       - key: SECRET_KEY
         generateValue: true
       - key: DATABASE_URL
-        value: sqlite+aiosqlite:///./pharmaflow.db
+        value: sqlite+aiosqlite:///./curarx.db
+      - key: ALLOWED_ORIGINS
+        value: https://curarx.vercel.app
 
-  # Frontend Web Service
-  - type: web
-    name: pharmaflow-frontend
-    env: static
-    plan: free
-    rootDir: frontend
-    buildCommand: npm install && npm run build
-    staticPublishPath: ./dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html

@@ -53,10 +53,14 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# CORS Middleware (allows frontend local dev server)
+# CORS Middleware — reads ALLOWED_ORIGINS env var in production
+import os as _os
+_raw_origins = _os.getenv("ALLOWED_ORIGINS", "*")
+_allow_origins = [o.strip() for o in _raw_origins.split(",")] if _raw_origins != "*" else ["*"]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=_allow_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -79,4 +83,4 @@ app.include_router(customers.router, prefix=f"{settings.API_V1_STR}/customers", 
 
 @app.get("/health")
 async def health_check():
-    return {"status": "healthy", "service": "PharmaFlow Backend", "currency": "PKR"}
+    return {"status": "healthy", "service": "CuraRx Backend API", "currency": "PKR"}
