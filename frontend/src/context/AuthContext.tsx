@@ -14,14 +14,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [state, setState] = useState<AuthState>({
     user: null,
     business: null,
-    token: localStorage.getItem('pharmaflow_token'),
+    token: sessionStorage.getItem('pharmaflow_token'),
     isAuthenticated: false,
     isLoading: true,
   });
 
   useEffect(() => {
     const initAuth = async () => {
-      const token = localStorage.getItem('pharmaflow_token');
+      const token = sessionStorage.getItem('pharmaflow_token');
       if (!token) {
         setState((prev) => ({ ...prev, isLoading: false }));
         return;
@@ -36,6 +36,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           isLoading: false,
         });
       } catch (err) {
+        sessionStorage.removeItem('pharmaflow_token');
         localStorage.removeItem('pharmaflow_token');
         setState({
           user: null,
@@ -52,7 +53,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const login = async (email: string, password: string) => {
     const res = await api.post('/auth/login', { email, password });
     const { access_token, user, business } = res.data;
-    localStorage.setItem('pharmaflow_token', access_token);
+    sessionStorage.setItem('pharmaflow_token', access_token);
     setState({
       user,
       business,
@@ -65,7 +66,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const onboard = async (data: any) => {
     const res = await api.post('/auth/onboard', data);
     const { access_token, user, business } = res.data;
-    localStorage.setItem('pharmaflow_token', access_token);
+    sessionStorage.setItem('pharmaflow_token', access_token);
     setState({
       user,
       business,
@@ -76,6 +77,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const logout = () => {
+    sessionStorage.removeItem('pharmaflow_token');
     localStorage.removeItem('pharmaflow_token');
     setState({
       user: null,

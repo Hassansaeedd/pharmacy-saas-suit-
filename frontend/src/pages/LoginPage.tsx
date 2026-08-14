@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Mail, Lock, ArrowRight, Cross, ShieldCheck, Download, Building2 } from 'lucide-react';
+import { Mail, Lock, ArrowRight, ShieldCheck, Download, Building2 } from 'lucide-react';
 
 export const LoginPage: React.FC = () => {
   const { login } = useAuth();
@@ -49,12 +49,10 @@ export const LoginPage: React.FC = () => {
         {/* Logo Header */}
         <div className="relative z-10 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 shadow-lg">
-              <Cross className="w-6 h-6 text-white" />
-            </div>
+            <img src="/curarx_logo.jpg" alt="CuraRx Logo" className="w-12 h-12 rounded-2xl border border-white/30 shadow-lg object-cover" />
             <div>
-              <h1 className="text-xl font-extrabold text-white tracking-tight">PharmaFlow</h1>
-              <p className="text-green-200 text-xs font-medium">Pakistan's #1 Pharmacy SaaS</p>
+              <h1 className="text-xl font-extrabold text-white tracking-tight">CuraRx ERP</h1>
+              <p className="text-green-200 text-xs font-medium">Industrial Pharmacy Suite & POS</p>
             </div>
           </div>
 

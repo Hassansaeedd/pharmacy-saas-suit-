@@ -30,6 +30,7 @@ class Medicine(Base):
     purchase_price: Mapped[float] = mapped_column(Float, default=0.0)
     sale_price: Mapped[float] = mapped_column(Float, default=0.0)
     reorder_threshold: Mapped[int] = mapped_column(Integer, default=10)
+    barcode: Mapped[str | None] = mapped_column(String(100), nullable=True, index=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
 
     # Relationships
@@ -48,6 +49,7 @@ class Batch(Base):
     received_date: Mapped[date] = mapped_column(Date, default=date.today)
     supplier_id: Mapped[int | None] = mapped_column(Integer, ForeignKey("suppliers.id", ondelete="SET NULL"), nullable=True)
     purchase_price: Mapped[float] = mapped_column(Float, default=0.0)
+    barcode: Mapped[str | None] = mapped_column(String(100), nullable=True, index=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
 
     # Relationships

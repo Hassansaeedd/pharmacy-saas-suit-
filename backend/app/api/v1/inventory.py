@@ -11,10 +11,13 @@ from app.core.db import get_db
 from app.core.deps import get_current_user
 from app.models.user import User
 from app.models.inventory import Supplier, Medicine, Batch, StockMovement
+from app.models.sales import PurchaseOrder, PurchaseOrderItem
 from app.schemas.inventory import (
     SupplierCreate, SupplierResponse,
     MedicineCreate, MedicineUpdate, MedicineResponse,
-    BatchCreate, BatchResponse
+    BatchCreate, BatchResponse,
+    PurchaseOrderCreate, PurchaseOrderResponse, PurchaseOrderItemResponse,
+    ReceivePORequest
 )
 
 router = APIRouter()
@@ -65,7 +68,8 @@ async def create_medicine(
         unit_type=data.unit_type,
         purchase_price=data.purchase_price,
         sale_price=data.sale_price,
-        reorder_threshold=data.reorder_threshold
+        reorder_threshold=data.reorder_threshold,
+        barcode=data.barcode.strip() if data.barcode else None
     )
     db.add(medicine)
     await db.commit()
@@ -83,6 +87,7 @@ async def create_medicine(
         purchase_price=medicine.purchase_price,
         sale_price=medicine.sale_price,
         reorder_threshold=medicine.reorder_threshold,
+        barcode=medicine.barcode,
         total_stock=0,
         earliest_expiry=None,
         batches=[],
@@ -91,7 +96,7 @@ async def create_medicine(
 
 @router.get("/medicines", response_model=List[MedicineResponse])
 async def list_medicines(
-    q: Optional[str] = Query(None, description="Search by brand or generic name"),
+    q: Optional[str] = Query(None, description="Search by brand, generic name, or barcode"),
     low_stock_only: bool = False,
     current_user: User = Depends(get_current_user),
     db: AsyncSession = Depends(get_db)
@@ -102,13 +107,16 @@ async def list_medicines(
         .where(Medicine.business_id == current_user.business_id)
     )
     
-    # Dual Search: brand_name OR generic_name
+    # Search: brand_name OR generic_name OR Medicine.barcode OR Batch.barcode
     if q and q.strip():
         search_term = f"%{q.strip()}%"
+        exact_q = q.strip()
         stmt = stmt.where(
             or_(
                 Medicine.brand_name.ilike(search_term),
-                Medicine.generic_name.ilike(search_term)
+                Medicine.generic_name.ilike(search_term),
+                Medicine.barcode == exact_q,
+                Medicine.batches.any(Batch.barcode == exact_q)
             )
         )
         
@@ -235,14 +243,19 @@ async def import_medicines_csv(
             errors.append(f"Row {row_idx}: Missing brand_name or generic_name")
             continue
             
-        category = row.get("category", "tablet").strip()
+        category = (row.get("category") or "tablet").strip().lower()
         req_rx = str(row.get("requires_prescription", "")).strip().lower() in ["true", "1", "yes"]
-        unit_type = row.get("unit_type", "strip").strip()
+        unit_type = (row.get("unit_type") or "strip").strip().lower()
         
         try:
-            purchase_price = float(row.get("purchase_price", 0))
-            sale_price = float(row.get("sale_price", 0))
-            reorder_threshold = int(row.get("reorder_threshold", 10))
+            p_price_raw = row.get("purchase_price")
+            purchase_price = float(p_price_raw) if p_price_raw is not None and str(p_price_raw).strip() != "" else 0.0
+
+            s_price_raw = row.get("sale_price")
+            sale_price = float(s_price_raw) if s_price_raw is not None and str(s_price_raw).strip() != "" else 0.0
+
+            reorder_raw = row.get("reorder_threshold")
+            reorder_threshold = int(reorder_raw) if reorder_raw is not None and str(reorder_raw).strip() != "" else 10
         except ValueError:
             errors.append(f"Row {row_idx}: Invalid numeric pricing data")
             continue
@@ -251,7 +264,7 @@ async def import_medicines_csv(
             business_id=current_user.business_id,
             brand_name=brand_name,
             generic_name=generic_name,
-            manufacturer=row.get("manufacturer", "").strip() or None,
+            manufacturer=(row.get("manufacturer") or "").strip() or None,
             category=category,
             requires_prescription=req_rx,
             unit_type=unit_type,
@@ -294,7 +307,8 @@ async def create_batch(
         quantity_in_stock=data.quantity_in_stock,
         received_date=date.today(),
         supplier_id=data.supplier_id,
-        purchase_price=data.purchase_price
+        purchase_price=data.purchase_price,
+        barcode=data.barcode.strip() if data.barcode else f"B-{data.batch_number.strip()}"
     )
     db.add(batch)
     await db.flush()
@@ -351,3 +365,176 @@ async def list_batches(
         res_list.append(b_resp)
         
     return res_list
+
+# --- PURCHASE ORDERS (PROCUREMENT) ---
+@router.post("/purchase-orders", response_model=PurchaseOrderResponse, status_code=status.HTTP_201_CREATED)
+async def create_purchase_order(
+    data: PurchaseOrderCreate,
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db)
+):
+    sup_res = await db.execute(select(Supplier).where(Supplier.id == data.supplier_id, Supplier.business_id == current_user.business_id))
+    supplier = sup_res.scalar_one_or_none()
+    if not supplier:
+        raise HTTPException(status_code=404, detail="Supplier not found")
+
+    total_cost = sum(item.quantity * item.cost_price for item in data.items)
+
+    po = PurchaseOrder(
+        business_id=current_user.business_id,
+        supplier_id=data.supplier_id,
+        status="submitted",
+        total_cost=total_cost
+    )
+    db.add(po)
+    await db.flush()
+
+    for item in data.items:
+        po_item = PurchaseOrderItem(
+            purchase_order_id=po.id,
+            medicine_id=item.medicine_id,
+            quantity=item.quantity,
+            cost_price=item.cost_price
+        )
+        db.add(po_item)
+
+    await db.commit()
+    await db.refresh(po)
+    return await get_purchase_order(po.id, current_user, db)
+
+@router.get("/purchase-orders", response_model=List[PurchaseOrderResponse])
+async def list_purchase_orders(
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db)
+):
+    stmt = (
+        select(PurchaseOrder)
+        .options(selectinload(PurchaseOrder.items))
+        .where(PurchaseOrder.business_id == current_user.business_id)
+        .order_by(PurchaseOrder.created_at.desc())
+    )
+    res = await db.execute(stmt)
+    pos = res.scalars().all()
+
+    response_list = []
+    for po in pos:
+        sup_res = await db.execute(select(Supplier).where(Supplier.id == po.supplier_id))
+        sup = sup_res.scalar_one_or_none()
+        
+        items_resp = []
+        for item in po.items:
+            med_res = await db.execute(select(Medicine).where(Medicine.id == item.medicine_id))
+            med = med_res.scalar_one_or_none()
+            items_resp.append(PurchaseOrderItemResponse(
+                id=item.id,
+                medicine_id=item.medicine_id,
+                medicine_name=med.brand_name if med else "Medicine",
+                quantity=item.quantity,
+                cost_price=item.cost_price
+            ))
+
+        response_list.append(PurchaseOrderResponse(
+            id=po.id,
+            business_id=po.business_id,
+            supplier_id=po.supplier_id,
+            supplier_name=sup.name if sup else "Supplier",
+            status=po.status,
+            total_cost=po.total_cost,
+            items=items_resp,
+            created_at=po.created_at
+        ))
+    return response_list
+
+@router.get("/purchase-orders/{po_id}", response_model=PurchaseOrderResponse)
+async def get_purchase_order(
+    po_id: int,
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db)
+):
+    stmt = (
+        select(PurchaseOrder)
+        .options(selectinload(PurchaseOrder.items))
+        .where(PurchaseOrder.id == po_id, PurchaseOrder.business_id == current_user.business_id)
+    )
+    res = await db.execute(stmt)
+    po = res.scalar_one_or_none()
+    if not po:
+        raise HTTPException(status_code=404, detail="Purchase Order not found")
+
+    sup_res = await db.execute(select(Supplier).where(Supplier.id == po.supplier_id))
+    sup = sup_res.scalar_one_or_none()
+
+    items_resp = []
+    for item in po.items:
+        med_res = await db.execute(select(Medicine).where(Medicine.id == item.medicine_id))
+        med = med_res.scalar_one_or_none()
+        items_resp.append(PurchaseOrderItemResponse(
+            id=item.id,
+            medicine_id=item.medicine_id,
+            medicine_name=med.brand_name if med else "Medicine",
+            quantity=item.quantity,
+            cost_price=item.cost_price
+        ))
+
+    return PurchaseOrderResponse(
+        id=po.id,
+        business_id=po.business_id,
+        supplier_id=po.supplier_id,
+        supplier_name=sup.name if sup else "Supplier",
+        status=po.status,
+        total_cost=po.total_cost,
+        items=items_resp,
+        created_at=po.created_at
+    )
+
+@router.post("/purchase-orders/{po_id}/receive", response_model=PurchaseOrderResponse)
+async def receive_purchase_order(
+    po_id: int,
+    data: ReceivePORequest,
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db)
+):
+    po_res = await db.execute(
+        select(PurchaseOrder)
+        .options(selectinload(PurchaseOrder.items))
+        .where(PurchaseOrder.id == po_id, PurchaseOrder.business_id == current_user.business_id)
+    )
+    po = po_res.scalar_one_or_none()
+    if not po:
+        raise HTTPException(status_code=404, detail="Purchase Order not found")
+
+    if po.status == "received":
+        raise HTTPException(status_code=400, detail="Purchase Order has already been received into inventory stock.")
+
+    for rec in data.received_items:
+        po_item = next((i for i in po.items if i.id == rec.item_id), None)
+        if not po_item:
+            continue
+
+        batch = Batch(
+            business_id=current_user.business_id,
+            medicine_id=po_item.medicine_id,
+            batch_number=rec.batch_number.strip(),
+            expiry_date=rec.expiry_date,
+            quantity_in_stock=rec.received_qty,
+            received_date=date.today(),
+            supplier_id=po.supplier_id,
+            purchase_price=po_item.cost_price,
+            barcode=f"B-{rec.batch_number.strip()}"
+        )
+        db.add(batch)
+        await db.flush()
+
+        movement = StockMovement(
+            business_id=current_user.business_id,
+            batch_id=batch.id,
+            type="in",
+            quantity=rec.received_qty,
+            reason=f"Received PO #{po.id}",
+            staff_id=current_user.id
+        )
+        db.add(movement)
+
+    po.status = "received"
+    await db.commit()
+    return await get_purchase_order(po.id, current_user, db)

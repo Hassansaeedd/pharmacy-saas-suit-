@@ -142,6 +142,7 @@ async def seed_pharmacy_catalog(db: AsyncSession, business_id: int):
     today = date.today()
 
     for idx, item in enumerate(PAKISTANI_MEDICINES_SEED):
+        barcode_str = f"890{idx+1001:09d}" # Standard 13-digit EAN/Pakistani barcode format
         med = Medicine(
             business_id=business_id,
             brand_name=item["brand"],
@@ -151,7 +152,8 @@ async def seed_pharmacy_catalog(db: AsyncSession, business_id: int):
             unit_type=item["unit"],
             purchase_price=item["cost"],
             sale_price=item["price"],
-            reorder_threshold=item["threshold"]
+            reorder_threshold=item["threshold"],
+            barcode=barcode_str
         )
         db.add(med)
         await db.flush()
@@ -168,7 +170,8 @@ async def seed_pharmacy_catalog(db: AsyncSession, business_id: int):
             quantity_in_stock=qty,
             received_date=today,
             supplier_id=supplier.id,
-            purchase_price=item["cost"]
+            purchase_price=item["cost"],
+            barcode=f"B-{barcode_str}"
         )
         db.add(batch)
 

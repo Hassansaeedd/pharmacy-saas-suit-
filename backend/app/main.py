@@ -63,7 +63,7 @@ app.add_middleware(
 )
 
 # Router imports
-from app.api.v1 import auth, business, inventory, pos, dashboard, reports, expiry, forecasting, whatsapp, admin
+from app.api.v1 import auth, business, inventory, pos, dashboard, reports, expiry, forecasting, whatsapp, admin, customers
 
 app.include_router(auth.router, prefix=f"{settings.API_V1_STR}/auth", tags=["Auth & Onboarding"])
 app.include_router(business.router, prefix=f"{settings.API_V1_STR}/business", tags=["Business & Staff"])
@@ -75,6 +75,7 @@ app.include_router(expiry.router, prefix=f"{settings.API_V1_STR}/expiry", tags=[
 app.include_router(forecasting.router, prefix=f"{settings.API_V1_STR}/forecasting", tags=["AI/ML Forecasting & POs"])
 app.include_router(whatsapp.router, prefix=f"{settings.API_V1_STR}/whatsapp", tags=["WhatsApp Bot & Webhook"])
 app.include_router(admin.router, prefix=f"{settings.API_V1_STR}/admin", tags=["Super Admin Portal"])
+app.include_router(customers.router, prefix=f"{settings.API_V1_STR}/customers", tags=["Customer Khata Ledger"])
 
 @app.get("/health")
 async def health_check():

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Building2, ShieldCheck, ArrowRight, Cross, Phone, MapPin, Hash, User, Mail, Lock } from 'lucide-react';
+import { Building2, ShieldCheck, ArrowRight, Phone, MapPin, Hash, User, Mail, Lock } from 'lucide-react';
 
 export const OnboardingPage: React.FC = () => {
   const { onboard } = useAuth();
@@ -48,12 +48,10 @@ export const OnboardingPage: React.FC = () => {
       <div className="sm:mx-auto sm:w-full sm:max-w-2xl mb-8 text-center">
         <div className="flex justify-center mb-5">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-lg shadow-green-500/25">
-              <Cross className="w-5 h-5 text-white" />
-            </div>
+            <img src="/curarx_logo.jpg" alt="CuraRx Logo" className="w-12 h-12 rounded-2xl border border-green-300 shadow-lg object-cover" />
             <div className="text-left">
-              <h1 className="font-extrabold text-green-800 text-xl">PharmaFlow</h1>
-              <p className="text-green-600 text-xs font-medium">Pakistan's #1 Pharmacy SaaS</p>
+              <h1 className="font-extrabold text-green-900 text-xl">CuraRx ERP</h1>
+              <p className="text-green-600 text-xs font-semibold">Industrial Pharmacy Suite & POS</p>
             </div>
           </div>
         </div>

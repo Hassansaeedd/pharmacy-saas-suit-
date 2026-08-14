@@ -14,6 +14,8 @@ import { ExpiryPage } from './pages/ExpiryPage';
 import { ForecastingPage } from './pages/ForecastingPage';
 import { WhatsAppPage } from './pages/WhatsAppPage';
 import { AdminPage } from './pages/AdminPage';
+import { CustomerKhataPage } from './pages/CustomerKhataPage';
+import { ProcurementPage } from './pages/ProcurementPage';
 
 const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -84,6 +86,26 @@ export function App() {
                 <AppLayout>
                   <PharmacyOnlyPage>
                     <POSPage />
+                  </PharmacyOnlyPage>
+                </AppLayout>
+              }
+            />
+            <Route
+              path="/khata"
+              element={
+                <AppLayout>
+                  <PharmacyOnlyPage>
+                    <CustomerKhataPage />
+                  </PharmacyOnlyPage>
+                </AppLayout>
+              }
+            />
+            <Route
+              path="/procurement"
+              element={
+                <AppLayout>
+                  <PharmacyOnlyPage>
+                    <ProcurementPage />
                   </PharmacyOnlyPage>
                 </AppLayout>
               }

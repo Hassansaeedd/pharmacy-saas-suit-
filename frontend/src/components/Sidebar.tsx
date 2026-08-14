@@ -11,6 +11,8 @@ import {
   MessageSquare,
   Building2,
   ShieldCheck,
+  BookOpen,
+  Truck,
   X
 } from 'lucide-react';
 
@@ -41,6 +43,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     { label: 'Dashboard', path: '/', icon: LayoutDashboard },
     { label: 'POS Counter', path: '/pos', icon: ShoppingCart },
     { label: 'Medicines & Catalog', path: '/inventory', icon: Pill },
+    { label: 'Customer Khata', path: '/khata', icon: BookOpen },
+    { label: 'Supplier Orders', path: '/procurement', icon: Truck, ownerOnly: true },
     { label: 'Expiry Alerts', path: '/expiry', icon: AlertTriangle },
     { label: 'Reports & Profit', path: '/reports', icon: BarChart3, ownerOnly: true },
     { label: 'AI Forecasting', path: '/forecasting', icon: BrainCircuit, ownerOnly: true },
@@ -67,10 +71,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         {/* Mobile Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-100 md:hidden">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
-              <span className="text-white font-bold text-xs">P</span>
-            </div>
-            <span className="font-bold text-green-800 text-sm">PharmaFlow</span>
+            <img src="/curarx_logo.jpg" alt="CuraRx Logo" className="w-7 h-7 rounded-lg object-cover border border-green-300" />
+            <span className="font-extrabold text-green-900 text-sm">CuraRx</span>
           </div>
           <button
             onClick={onClose}

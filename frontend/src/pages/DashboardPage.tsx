@@ -20,13 +20,18 @@ export const DashboardPage: React.FC = () => {
   const isOwner = user?.role === 'owner_pharmacist';
 
   const [summary, setSummary] = useState<any>(null);
+  const [forecasts, setForecasts] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchDashboard = async () => {
       if (!isOwner) return;
       try {
-        const res = await api.get('/dashboard/summary');
-        setSummary(res.data);
+        const [sumRes, fcRes] = await Promise.all([
+          api.get('/dashboard/summary'),
+          api.get('/forecasting/reorder').catch(() => ({ data: [] }))
+        ]);
+        setSummary(sumRes.data);
+        setForecasts(fcRes.data || []);
       } catch (err) {
         console.error('Failed to load owner dashboard summary', err);
       }
@@ -48,7 +53,7 @@ export const DashboardPage: React.FC = () => {
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 border border-white/20 text-white/90 text-xs font-semibold mb-3">
               <Sparkles className="w-3.5 h-3.5" />
-              Welcome to PharmaFlow
+              Welcome to CuraRx ERP
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
               {business?.name}
@@ -213,6 +218,84 @@ export const DashboardPage: React.FC = () => {
               </AreaChart>
             </ResponsiveContainer>
           </div>
+        </div>
+      )}
+
+      {/* AI Demand & Reorder Forecasting Section */}
+      {isOwner && (
+        <div className="ph-glass-card p-5 space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-100 pb-3">
+            <div>
+              <h3 className="font-extrabold text-gray-900 text-base flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-emerald-600 animate-pulse" />
+                AI Stock Velocity & Demand Forecasting
+              </h3>
+              <p className="text-xs text-gray-500 mt-0.5">
+                Real-time ML demand velocity predictions, stockout warnings, & automated purchase order suggestions.
+              </p>
+            </div>
+            <Link
+              to="/forecasting"
+              className="px-3.5 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 text-xs font-bold transition flex items-center gap-1 shrink-0 self-start sm:self-auto"
+            >
+              <span>Auto PO Generator</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          {forecasts.length === 0 ? (
+            <div className="p-8 text-center text-gray-400 text-xs">
+              No inventory forecasting risks detected. All medicines have healthy stock buffer.
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+              {forecasts.slice(0, 6).map((fc: any, idx: number) => {
+                const isUrgent = fc.needs_reorder || (fc.days_until_stockout !== null && fc.days_until_stockout <= 7);
+                return (
+                  <div
+                    key={idx}
+                    className={`p-3.5 rounded-xl border transition flex flex-col justify-between space-y-2 ${
+                      isUrgent
+                        ? 'bg-red-50/60 border-red-200 hover:border-red-300'
+                        : 'bg-white/80 border-gray-100 hover:border-gray-200 shadow-sm'
+                    }`}
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <div>
+                        <p className="text-xs font-black text-gray-900">{fc.brand_name}</p>
+                        <p className="text-[11px] text-emerald-600 font-semibold">{fc.generic_name}</p>
+                      </div>
+                      <span
+                        className={`px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase shrink-0 ${
+                          isUrgent
+                            ? 'bg-red-100 text-red-700 border border-red-300'
+                            : 'bg-emerald-100 text-emerald-800'
+                        }`}
+                      >
+                        {fc.days_until_stockout !== null ? `${fc.days_until_stockout}d stock` : 'Healthy'}
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-1 text-[11px] bg-white/70 p-2 rounded-lg border border-gray-100">
+                      <div>
+                        <span className="text-gray-400 block text-[10px] uppercase font-bold">Current Stock</span>
+                        <span className="font-black text-gray-800">{fc.total_stock} units</span>
+                      </div>
+                      <div>
+                        <span className="text-gray-400 block text-[10px] uppercase font-bold">Suggested PO Qty</span>
+                        <span className="font-black text-emerald-700">{fc.suggested_reorder_qty} units</span>
+                      </div>
+                    </div>
+
+                    <div className="text-[10px] text-gray-500 flex items-center justify-between pt-1 border-t border-gray-100">
+                      <span>Daily Velocity: <b>{(fc.daily_sales_velocity || 0).toFixed(1)}/day</b></span>
+                      <span className="truncate max-w-[120px]">Supplier: <b>{fc.primary_supplier || 'Unassigned'}</b></span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       )}
 

@@ -88,12 +88,34 @@ async def create_sale(
             
             processed_items.append((item.medicine_id, batch.id, alloc_qty, item.unit_price, subtotal))
 
+    # Customer Khata Credit Validation
+    customer = None
+    if data.payment_method == "customer_credit":
+        if not data.customer_id:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="A registered customer account must be selected for Customer Khata Credit payments."
+            )
+        from app.models.customer import Customer, CustomerTransaction
+        cust_res = await db.execute(
+            select(Customer).where(Customer.id == data.customer_id, Customer.business_id == business_id)
+        )
+        customer = cust_res.scalar_one_or_none()
+        if not customer:
+            raise HTTPException(status_code=404, detail="Customer credit account not found.")
+
+        if (customer.current_balance + total_amount) > customer.credit_limit:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=f"Credit limit exceeded! Customer balance is Rs. {customer.current_balance:.2f}, purchase is Rs. {total_amount:.2f}, max limit is Rs. {customer.credit_limit:.2f}."
+            )
+
     # Record Sale
     new_sale = Sale(
         business_id=business_id,
         staff_id=current_user.id,
-        customer_name=data.customer_name,
-        customer_phone=data.customer_phone,
+        customer_name=data.customer_name or (customer.name if customer else None),
+        customer_phone=data.customer_phone or (customer.phone if customer else None),
         total_amount=total_amount,
         payment_method=data.payment_method,
         prescription_verified=data.prescription_verified,
@@ -101,6 +123,21 @@ async def create_sale(
     )
     db.add(new_sale)
     await db.flush() # Populate new_sale.id
+
+    # If Khata Credit Sale, record CustomerTransaction & update current_balance
+    if customer:
+        new_bal = round(customer.current_balance + total_amount, 2)
+        customer.current_balance = new_bal
+        c_trans = CustomerTransaction(
+            business_id=business_id,
+            customer_id=customer.id,
+            sale_id=new_sale.id,
+            transaction_type="credit_sale",
+            amount=total_amount,
+            balance_after=new_bal,
+            notes=f"POS Sale Invoice #{new_sale.id}"
+        )
+        db.add(c_trans)
 
     # Record Sale Items
     sale_item_responses = []

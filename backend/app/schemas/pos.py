@@ -10,9 +10,10 @@ class POSCartItem(BaseModel):
 
 class SaleCreate(BaseModel):
     items: List[POSCartItem]
+    customer_id: Optional[int] = None
     customer_name: Optional[str] = None
     customer_phone: Optional[str] = None
-    payment_method: str = "cash" # cash, card, mobile_wallet
+    payment_method: str = "cash" # cash, card, mobile_wallet, customer_credit
     prescription_verified: bool = False
     verification_note: Optional[str] = None
 

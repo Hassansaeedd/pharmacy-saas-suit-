@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { LogOut, Building2, Menu, Cross, ChevronDown, ShieldCheck } from 'lucide-react';
+import { LogOut, Building2, Menu, ChevronDown, ShieldCheck } from 'lucide-react';
 
 interface NavbarProps {
   onToggleSidebar?: () => void;
@@ -25,14 +25,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onToggleSidebar }) => {
 
         {/* Logo + Brand */}
         <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white shadow-md shadow-green-500/20">
-            <Cross className="w-4 h-4 fill-white stroke-none" style={{ fill: 'white' }} />
-          </div>
+          <img src="/curarx_logo.jpg" alt="CuraRx Logo" className="w-9 h-9 rounded-xl object-cover shadow-md shadow-green-500/20 border border-green-300/40" />
           <div>
-            <h1 className="font-bold text-green-800 tracking-tight leading-none flex items-center gap-2 text-base">
-              PharmaFlow
+            <h1 className="font-extrabold text-green-900 tracking-tight leading-none flex items-center gap-2 text-base">
+              CuraRx
               <span className="text-[10px] font-bold tracking-wider px-2 py-0.5 rounded-full bg-green-100 text-green-700 border border-green-200 uppercase">
-                {isSuperAdmin ? 'ADMIN' : 'PKR'}
+                {isSuperAdmin ? 'ADMIN' : 'SUITE'}
               </span>
             </h1>
             <p className="text-xs text-gray-500 font-medium truncate max-w-[150px] sm:max-w-xs leading-none mt-0.5">

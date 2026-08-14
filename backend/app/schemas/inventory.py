@@ -23,6 +23,7 @@ class BatchCreate(BaseModel):
     quantity_in_stock: int = Field(gt=0, description="Initial stock quantity")
     supplier_id: Optional[int] = None
     purchase_price: float = 0.0
+    barcode: Optional[str] = None
 
 class BatchResponse(BaseModel):
     id: int
@@ -35,6 +36,7 @@ class BatchResponse(BaseModel):
     supplier_id: Optional[int] = None
     purchase_price: float = 0.0
     supplier_name: Optional[str] = None
+    barcode: Optional[str] = None
 
     model_config = ConfigDict(from_attributes=True)
 
@@ -49,6 +51,7 @@ class MedicineCreate(BaseModel):
     purchase_price: float = 0.0
     sale_price: float = 0.0
     reorder_threshold: int = 10
+    barcode: Optional[str] = None
 
 class MedicineUpdate(BaseModel):
     brand_name: Optional[str] = None
@@ -60,6 +63,7 @@ class MedicineUpdate(BaseModel):
     purchase_price: Optional[float] = None
     sale_price: Optional[float] = None
     reorder_threshold: Optional[int] = None
+    barcode: Optional[str] = None
 
 class MedicineResponse(MedicineCreate):
     id: int
@@ -70,3 +74,43 @@ class MedicineResponse(MedicineCreate):
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+# Purchase Order Schemas
+class PurchaseOrderItemCreate(BaseModel):
+    medicine_id: int
+    quantity: int = Field(gt=0)
+    cost_price: float = Field(ge=0.0)
+
+class PurchaseOrderCreate(BaseModel):
+    supplier_id: int
+    items: List[PurchaseOrderItemCreate]
+
+class PurchaseOrderItemResponse(BaseModel):
+    id: int
+    medicine_id: int
+    medicine_name: Optional[str] = None
+    quantity: int
+    cost_price: float
+
+    model_config = ConfigDict(from_attributes=True)
+
+class PurchaseOrderResponse(BaseModel):
+    id: int
+    business_id: int
+    supplier_id: int
+    supplier_name: Optional[str] = None
+    status: str
+    total_cost: float
+    items: List[PurchaseOrderItemResponse] = []
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class ReceivePOItem(BaseModel):
+    item_id: int
+    batch_number: str
+    expiry_date: date
+    received_qty: int
+
+class ReceivePORequest(BaseModel):
+    received_items: List[ReceivePOItem]
