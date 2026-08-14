@@ -1,0 +1,528 @@
+brand_name,generic_name,category,sale_price,purchase_price,manufacturer,requires_prescription,unit_type,reorder_threshold
+Panadol,Paracetamol,tablet,35,25,GSK Pakistan,false,strip,20
+Brufen 400,Ibuprofen 400mg,tablet,55,40,Abbott Laboratories,false,strip,20
+Disprin,Aspirin 300mg,tablet,25,18,Bayer Pakistan,false,strip,20
+Ponstan,Mefenamic Acid,capsule,85,65,Pfizer Pakistan,false,strip,15
+Voltaren 50mg,Diclofenac Sodium 50mg,tablet,70,50,Novartis Pakistan,false,strip,15
+Voveran,Diclofenac Sodium 25mg,tablet,55,40,Novartis Pakistan,false,strip,15
+Cataflam,Diclofenac Potassium,tablet,90,70,Novartis Pakistan,false,strip,15
+Arcoxia,Etoricoxib 90mg,tablet,280,210,MSD Pakistan,true,strip,10
+Celebrex,Celecoxib 200mg,capsule,320,250,Pfizer Pakistan,true,strip,10
+Tramacet,Tramadol + Paracetamol,tablet,180,140,Janssen Pakistan,true,strip,10
+Ultram,Tramadol 50mg,capsule,150,115,Janssen Pakistan,true,strip,10
+Tramal,Tramadol 50mg,capsule,160,120,Mundipharma,true,strip,10
+Amoxil 500,Amoxicillin 500mg,capsule,120,90,GSK Pakistan,true,strip,15
+Augmentin 625,Amoxicillin + Clavulanate 625mg,tablet,280,210,GSK Pakistan,true,strip,10
+Augmentin 1g,Amoxicillin + Clavulanate 1g,tablet,420,320,GSK Pakistan,true,strip,10
+Flagyl 400,Metronidazole 400mg,tablet,65,48,Sanofi Pakistan,true,strip,15
+Flagyl 200,Metronidazole 200mg,tablet,45,32,Sanofi Pakistan,true,strip,15
+Ciproxin 500,Ciprofloxacin 500mg,tablet,180,135,Bayer Pakistan,true,strip,10
+Ciproflox 250,Ciprofloxacin 250mg,tablet,120,90,Getz Pharma,true,strip,10
+Norflox 400,Norfloxacin 400mg,tablet,90,68,Sami Pharma,true,strip,15
+Zithromax 250,Azithromycin 250mg,capsule,190,145,Pfizer Pakistan,true,strip,10
+Azibact,Azithromycin 500mg,tablet,280,210,Barrett Hodgson,true,strip,10
+Zinnat 500,Cefuroxime 500mg,tablet,350,270,GSK Pakistan,true,strip,10
+Rocephin,Ceftriaxone 1g,injection,650,500,Roche Pakistan,true,vial,10
+Ceftriax 1g,Ceftriaxone 1g,injection,550,420,Getz Pharma,true,vial,10
+Ceclor,Cefaclor 250mg,capsule,220,170,Lilly Pakistan,true,strip,10
+Ospexin,Cephalexin 500mg,capsule,140,105,Sandoz Pakistan,true,strip,10
+Klacid,Clarithromycin 500mg,tablet,380,290,Abbott Laboratories,true,strip,10
+Cilamox,Amoxicillin 250mg,syrup,95,72,GSK Pakistan,true,bottle,10
+Suprax,Cefixime 200mg,tablet,220,168,Wyeth Pakistan,true,strip,10
+Suprax 400,Cefixime 400mg,tablet,380,290,Wyeth Pakistan,true,strip,10
+Cefspan,Cefixime 200mg,tablet,190,145,Getz Pharma,true,strip,10
+Levaquin,Levofloxacin 500mg,tablet,280,210,Janssen Pakistan,true,strip,10
+Tavanic,Levofloxacin 500mg,tablet,310,238,Sanofi Pakistan,true,strip,10
+Avelox,Moxifloxacin 400mg,tablet,420,320,Bayer Pakistan,true,strip,10
+Rifampicin 450,Rifampicin 450mg,capsule,180,135,National Pharma,true,strip,10
+Isoniazid,Isoniazid 100mg,tablet,55,42,National Pharma,true,strip,10
+Ethambutol,Ethambutol 400mg,tablet,90,68,National Pharma,true,strip,10
+Tetracycline 500,Tetracycline 500mg,capsule,80,60,Sami Pharma,true,strip,10
+Doxycycline,Doxycycline 100mg,capsule,120,90,Getz Pharma,true,strip,10
+Erythromycin 250,Erythromycin 250mg,tablet,95,72,Abbott Laboratories,true,strip,10
+Peflox 400,Pefloxacin 400mg,tablet,155,118,Sanofi Pakistan,true,strip,10
+Unasyn 375,Ampicillin + Sulbactam 375mg,tablet,195,148,Pfizer Pakistan,true,strip,10
+Nydrazid,Isoniazid 300mg,tablet,80,60,National Pharma,true,strip,10
+Metrogyl 400,Metronidazole 400mg,tablet,60,45,J B Chemicals,true,strip,15
+Nexium 20,Esomeprazole 20mg,tablet,185,140,AstraZeneca,true,strip,15
+Nexium 40,Esomeprazole 40mg,tablet,320,245,AstraZeneca,true,strip,10
+Losec,Omeprazole 20mg,capsule,120,90,AstraZeneca,true,strip,15
+Protium 40,Pantoprazole 40mg,tablet,150,115,Abbott Laboratories,true,strip,15
+Controloc,Pantoprazole 40mg,tablet,165,126,Takeda Pakistan,true,strip,15
+Somac,Pantoprazole 20mg,tablet,120,90,Getz Pharma,true,strip,15
+Pariet,Rabeprazole 20mg,tablet,185,142,Janssen Pakistan,true,strip,10
+Ranison,Ranitidine 150mg,tablet,65,50,GSK Pakistan,true,strip,15
+Zantac,Ranitidine 150mg,tablet,70,53,GSK Pakistan,true,strip,15
+Pepcid,Famotidine 20mg,tablet,90,68,Merck Pakistan,true,strip,15
+Gaviscon,Alginate + Antacid,tablet,145,110,Reckitt Pakistan,false,strip,15
+Maalox,Magnesium + Aluminum Hydroxide,tablet,95,72,Sanofi Pakistan,false,strip,15
+Mylanta,Aluminum + Magnesium Hydroxide,syrup,180,138,Johnson Pakistan,false,bottle,10
+Eno,Sodium Bicarbonate + Citric Acid,sachet,25,18,GSK Pakistan,false,sachet,20
+Motilium,Domperidone 10mg,tablet,85,65,Janssen Pakistan,false,strip,15
+Maxolon,Metoclopramide 10mg,tablet,55,42,Sanofi Pakistan,false,strip,15
+Stugeron,Cinnarizine 25mg,tablet,65,50,Janssen Pakistan,false,strip,15
+Buscopan,Hyoscine Butylbromide 10mg,tablet,90,68,Boehringer Ingelheim,false,strip,15
+Colofac,Mebeverine 135mg,tablet,155,118,Solvay Pharma,false,strip,10
+Imodium,Loperamide 2mg,capsule,75,57,Janssen Pakistan,false,strip,15
+Dulcolax,Bisacodyl 5mg,tablet,70,53,Boehringer Ingelheim,false,strip,15
+Epsom Salt,Magnesium Sulfate,sachet,35,26,National Pharma,false,sachet,20
+Ispaghol Husk,Psyllium Husk,sachet,45,34,Various,false,sachet,20
+Lactulose Syrup,Lactulose,syrup,190,145,Abbott Laboratories,false,bottle,10
+Duphalac,Lactulose,syrup,210,160,Solvay Pharma,false,bottle,10
+Glucophage 500,Metformin 500mg,tablet,75,57,Merck Pakistan,true,strip,20
+Glucophage 850,Metformin 850mg,tablet,95,72,Merck Pakistan,true,strip,20
+Glucophage 1000,Metformin 1000mg,tablet,130,100,Merck Pakistan,true,strip,20
+Diamicron 80,Gliclazide 80mg,tablet,120,90,Servier Pakistan,true,strip,15
+Amaryl 2,Glimepiride 2mg,tablet,150,115,Sanofi Pakistan,true,strip,15
+Amaryl 4,Glimepiride 4mg,tablet,240,182,Sanofi Pakistan,true,strip,10
+Januvia 100,Sitagliptin 100mg,tablet,780,600,MSD Pakistan,true,strip,10
+Galvus 50,Vildagliptin 50mg,tablet,680,520,Novartis Pakistan,true,strip,10
+Trajenta,Linagliptin 5mg,tablet,720,550,Boehringer Ingelheim,true,strip,10
+Jardiance 10,Empagliflozin 10mg,tablet,880,680,Boehringer Ingelheim,true,strip,10
+Forxiga,Dapagliflozin 10mg,tablet,850,650,AstraZeneca,true,strip,10
+Victoza,Liraglutide 6mg/ml,injection,5500,4200,Novo Nordisk,true,pen,5
+Insulatard,NPH Insulin Human 100IU,injection,950,730,Novo Nordisk,true,vial,5
+Actrapid,Soluble Insulin Human 100IU,injection,900,690,Novo Nordisk,true,vial,5
+Novorapid,Insulin Aspart 100IU,injection,1650,1260,Novo Nordisk,true,pen,5
+Lantus,Insulin Glargine 100IU,injection,2800,2150,Sanofi Pakistan,true,pen,5
+Humulin R,Regular Insulin Human 100IU,injection,850,650,Lilly Pakistan,true,vial,5
+Humulin N,NPH Insulin Human 100IU,injection,880,675,Lilly Pakistan,true,vial,5
+Norvasc 5,Amlodipine 5mg,tablet,165,126,Pfizer Pakistan,true,strip,15
+Norvasc 10,Amlodipine 10mg,tablet,290,222,Pfizer Pakistan,true,strip,10
+Concor 2.5,Bisoprolol 2.5mg,tablet,180,138,Merck Pakistan,true,strip,15
+Concor 5,Bisoprolol 5mg,tablet,270,207,Merck Pakistan,true,strip,10
+Tenormin 50,Atenolol 50mg,tablet,90,68,AstraZeneca,true,strip,15
+Tenormin 100,Atenolol 100mg,tablet,150,115,AstraZeneca,true,strip,10
+Toprol XL 50,Metoprolol Succinate 50mg,tablet,195,150,AstraZeneca,true,strip,10
+Betaloc 50,Metoprolol Tartrate 50mg,tablet,155,118,AstraZeneca,true,strip,15
+Cardace 5,Ramipril 5mg,tablet,195,150,Sanofi Pakistan,true,strip,15
+Cardace 10,Ramipril 10mg,tablet,320,245,Sanofi Pakistan,true,strip,10
+Tritace 2.5,Ramipril 2.5mg,tablet,150,115,Sanofi Pakistan,true,strip,15
+Renitec 5,Enalapril 5mg,tablet,120,90,MSD Pakistan,true,strip,15
+Renitec 10,Enalapril 10mg,tablet,190,145,MSD Pakistan,true,strip,10
+Zestril 10,Lisinopril 10mg,tablet,160,122,AstraZeneca,true,strip,15
+Zestril 20,Lisinopril 20mg,tablet,260,198,AstraZeneca,true,strip,10
+Micardis 40,Telmisartan 40mg,tablet,295,226,Boehringer Ingelheim,true,strip,10
+Micardis 80,Telmisartan 80mg,tablet,420,322,Boehringer Ingelheim,true,strip,10
+Diovan 80,Valsartan 80mg,tablet,310,238,Novartis Pakistan,true,strip,10
+Diovan 160,Valsartan 160mg,tablet,490,376,Novartis Pakistan,true,strip,10
+Cozaar 50,Losartan 50mg,tablet,280,215,MSD Pakistan,true,strip,10
+Cozaar 100,Losartan 100mg,tablet,430,330,MSD Pakistan,true,strip,10
+Atacand 8,Candesartan 8mg,tablet,295,226,AstraZeneca,true,strip,10
+Atacand 16,Candesartan 16mg,tablet,450,345,AstraZeneca,true,strip,10
+Lasix 40,Furosemide 40mg,tablet,55,42,Sanofi Pakistan,true,strip,15
+Inspra 25,Eplerenone 25mg,tablet,380,292,Pfizer Pakistan,true,strip,10
+Aldactone 25,Spironolactone 25mg,tablet,110,84,Pfizer Pakistan,true,strip,15
+Natrlix 1.5,Indapamide 1.5mg,tablet,195,150,Servier Pakistan,true,strip,10
+HydroD 25,Hydrochlorothiazide 25mg,tablet,70,53,Various,true,strip,15
+Lipitor 10,Atorvastatin 10mg,tablet,225,172,Pfizer Pakistan,true,strip,15
+Lipitor 20,Atorvastatin 20mg,tablet,370,284,Pfizer Pakistan,true,strip,10
+Lipitor 40,Atorvastatin 40mg,tablet,540,415,Pfizer Pakistan,true,strip,10
+Crestor 10,Rosuvastatin 10mg,tablet,380,292,AstraZeneca,true,strip,10
+Crestor 20,Rosuvastatin 20mg,tablet,580,445,AstraZeneca,true,strip,10
+Zocor 20,Simvastatin 20mg,tablet,220,168,MSD Pakistan,true,strip,15
+Tricor 145,Fenofibrate 145mg,tablet,320,245,Abbott Laboratories,true,strip,10
+Zetia 10,Ezetimibe 10mg,tablet,580,445,MSD Pakistan,true,strip,10
+Plavix 75,Clopidogrel 75mg,tablet,320,245,Sanofi Pakistan,true,strip,10
+Xarelto 20,Rivaroxaban 20mg,tablet,1850,1420,Bayer Pakistan,true,strip,5
+Eliquis 5,Apixaban 5mg,tablet,1650,1265,Pfizer Pakistan,true,strip,5
+Warfarin 5,Warfarin Sodium 5mg,tablet,95,72,Various,true,strip,10
+Heparin,Heparin Sodium 5000IU,injection,280,215,Various,true,vial,5
+Isordil 5,Isosorbide Dinitrate 5mg,tablet,75,57,Wyeth Pakistan,true,strip,15
+Imdur 60,Isosorbide Mononitrate 60mg,tablet,320,245,AstraZeneca,true,strip,10
+Nitrostat,Nitroglycerin 0.4mg,tablet,185,142,Pfizer Pakistan,true,strip,10
+Cordarone 200,Amiodarone 200mg,tablet,280,215,Sanofi Pakistan,true,strip,10
+Digoxin 0.25,Digoxin 0.25mg,tablet,65,50,Various,true,strip,10
+Betaloc 25,Metoprolol Tartrate 25mg,tablet,95,72,AstraZeneca,true,strip,15
+Ventolin 100mcg,Salbutamol 100mcg,inhaler,350,268,GSK Pakistan,true,inhaler,10
+Seretide 25/250,Salmeterol + Fluticasone,inhaler,1850,1420,GSK Pakistan,true,inhaler,5
+Symbicort 160/4.5,Budesonide + Formoterol,inhaler,1950,1496,AstraZeneca,true,inhaler,5
+Atrovent,Ipratropium Bromide,inhaler,420,322,Boehringer Ingelheim,true,inhaler,5
+Pulmicort 200,Budesonide 200mcg,inhaler,980,752,AstraZeneca,true,inhaler,5
+Flixotide 125,Fluticasone 125mcg,inhaler,850,652,GSK Pakistan,true,inhaler,5
+Mucinex,Guaifenesin 400mg,tablet,85,65,Reckitt Pakistan,false,strip,15
+Bisolvon,Bromhexine 8mg,tablet,70,53,Boehringer Ingelheim,false,strip,15
+Prospan,Ivy Leaf Extract,syrup,280,215,Engelhard Arzneimittel,false,bottle,10
+Actifed,Triprolidine + Pseudoephedrine,tablet,80,61,GSK Pakistan,false,strip,15
+Claritine,Loratadine 10mg,tablet,130,100,Bayer Pakistan,false,strip,15
+Zyrtec,Cetirizine 10mg,tablet,120,90,UCB Pakistan,false,strip,15
+Telfast 180,Fexofenadine 180mg,tablet,280,215,Sanofi Pakistan,false,strip,10
+Allegra 120,Fexofenadine 120mg,tablet,220,168,Sanofi Pakistan,false,strip,10
+Atarax 25,Hydroxyzine 25mg,tablet,95,72,UCB Pakistan,true,strip,10
+Polaramine,Dexchlorpheniramine,tablet,65,50,MSD Pakistan,false,strip,15
+Avil 25,Pheniramine 25mg,tablet,45,34,Sanofi Pakistan,false,strip,15
+Rhinocort,Budesonide Nasal Spray,drops,380,292,AstraZeneca,true,bottle,5
+Nasonex,Mometasone Nasal Spray,drops,420,322,MSD Pakistan,true,bottle,5
+Flonase,Fluticasone Nasal Spray,drops,350,268,GSK Pakistan,true,bottle,5
+Otrivin,Xylometazoline 0.1%,drops,95,72,Novartis Pakistan,false,bottle,10
+Otrivin Nasal,Xylometazoline 0.05%,drops,85,65,Novartis Pakistan,false,bottle,10
+Zoloft 50,Sertraline 50mg,tablet,280,215,Pfizer Pakistan,true,strip,10
+Prozac 20,Fluoxetine 20mg,capsule,220,168,Lilly Pakistan,true,strip,10
+Lexapro 10,Escitalopram 10mg,tablet,380,292,Lundbeck Pakistan,true,strip,10
+Cipralex 20,Escitalopram 20mg,tablet,580,445,Lundbeck Pakistan,true,strip,10
+Effexor 75,Venlafaxine 75mg,capsule,420,322,Wyeth Pakistan,true,strip,10
+Remeron 15,Mirtazapine 15mg,tablet,350,268,Organon Pakistan,true,strip,10
+Tryptizol 25,Amitriptyline 25mg,tablet,85,65,MSD Pakistan,true,strip,10
+Anafranil 25,Clomipramine 25mg,tablet,165,126,Novartis Pakistan,true,strip,10
+Xanax 0.25,Alprazolam 0.25mg,tablet,80,61,Pfizer Pakistan,true,strip,10
+Xanax 0.5,Alprazolam 0.5mg,tablet,120,90,Pfizer Pakistan,true,strip,10
+Rivotril 0.5,Clonazepam 0.5mg,tablet,95,72,Roche Pakistan,true,strip,10
+Valium 5,Diazepam 5mg,tablet,65,50,Roche Pakistan,true,strip,10
+Ativan 1,Lorazepam 1mg,tablet,85,65,Wyeth Pakistan,true,strip,10
+Stilnox,Zolpidem 10mg,tablet,320,245,Sanofi Pakistan,true,strip,10
+Imovane,Zopiclone 7.5mg,tablet,280,215,Sanofi Pakistan,true,strip,10
+Risperdal 2,Risperidone 2mg,tablet,280,215,Janssen Pakistan,true,strip,10
+Risperdal 4,Risperidone 4mg,tablet,450,345,Janssen Pakistan,true,strip,10
+Zyprexa 5,Olanzapine 5mg,tablet,350,268,Lilly Pakistan,true,strip,10
+Zyprexa 10,Olanzapine 10mg,tablet,580,445,Lilly Pakistan,true,strip,10
+Seroquel 25,Quetiapine 25mg,tablet,280,215,AstraZeneca,true,strip,10
+Seroquel 100,Quetiapine 100mg,tablet,720,552,AstraZeneca,true,strip,10
+Tegretol 200,Carbamazepine 200mg,tablet,120,90,Novartis Pakistan,true,strip,10
+Depakine 500,Sodium Valproate 500mg,tablet,210,161,Sanofi Pakistan,true,strip,10
+Epilim 200,Sodium Valproate 200mg,tablet,155,118,Sanofi Pakistan,true,strip,10
+Lamictal 25,Lamotrigine 25mg,tablet,280,215,GSK Pakistan,true,strip,10
+Neurontin 300,Gabapentin 300mg,capsule,220,168,Pfizer Pakistan,true,strip,10
+Lyrica 75,Pregabalin 75mg,capsule,380,292,Pfizer Pakistan,true,strip,10
+Lyrica 150,Pregabalin 150mg,capsule,580,445,Pfizer Pakistan,true,strip,10
+Topamax 25,Topiramate 25mg,tablet,320,245,Janssen Pakistan,true,strip,10
+Rivotril 2,Clonazepam 2mg,tablet,125,95,Roche Pakistan,true,strip,10
+Epanutin 100,Phenytoin 100mg,capsule,85,65,Pfizer Pakistan,true,strip,10
+Aricept 5,Donepezil 5mg,tablet,580,445,Eisai Pakistan,true,strip,5
+Reminyl 8,Galantamine 8mg,capsule,950,730,Janssen Pakistan,true,strip,5
+Diamox,Acetazolamide 250mg,tablet,155,118,Wyeth Pakistan,true,strip,10
+Synthroid 50,Levothyroxine 50mcg,tablet,95,72,Abbott Laboratories,true,strip,15
+Synthroid 100,Levothyroxine 100mcg,tablet,150,115,Abbott Laboratories,true,strip,15
+Euthyrox 50,Levothyroxine 50mcg,tablet,90,68,Merck Pakistan,true,strip,15
+Propylthiouracil,Propylthiouracil 50mg,tablet,80,61,National Pharma,true,strip,10
+Carbimazole 5,Carbimazole 5mg,tablet,75,57,Nicholas Pharma,true,strip,10
+Prednisolone 5,Prednisolone 5mg,tablet,45,34,Sanofi Pakistan,true,strip,15
+Prednisolone 20,Prednisolone 20mg,tablet,110,84,Sanofi Pakistan,true,strip,10
+Dexamethasone 4,Dexamethasone 4mg,tablet,85,65,Astellas Pharma,true,strip,10
+Medrol 4,Methylprednisolone 4mg,tablet,165,126,Pfizer Pakistan,true,strip,10
+Medrol 16,Methylprednisolone 16mg,tablet,380,292,Pfizer Pakistan,true,strip,10
+Betnesol,Betamethasone 0.5mg,tablet,95,72,GSK Pakistan,true,strip,10
+Decadron,Dexamethasone 0.5mg,tablet,55,42,MSD Pakistan,true,strip,10
+Kenacort,Triamcinolone 4mg,tablet,120,90,Pfizer Pakistan,true,strip,10
+Feldene 20,Piroxicam 20mg,capsule,90,68,Pfizer Pakistan,true,strip,15
+Voltaren Gel,Diclofenac Gel 1%,cream,185,142,Novartis Pakistan,false,tube,10
+Counterpain,Methyl Salicylate,cream,155,118,Taisho Pakistan,false,tube,10
+Myoflex,Trolamine Salicylate,cream,120,90,Various,false,tube,10
+Dermovate,Clobetasol Propionate 0.05%,cream,150,115,GSK Pakistan,true,tube,10
+Betnovate,Betamethasone Valerate 0.1%,cream,120,90,GSK Pakistan,true,tube,10
+Elocon,Mometasone Furoate 0.1%,cream,185,142,MSD Pakistan,true,tube,10
+Advantan,Methylprednisolone 0.1%,cream,220,168,Bayer Pakistan,true,tube,10
+Canesten,Clotrimazole 1%,cream,145,110,Bayer Pakistan,false,tube,10
+Lamisil,Terbinafine 1%,cream,280,215,Novartis Pakistan,false,tube,10
+Daktarin,Miconazole 2%,cream,130,100,Janssen Pakistan,false,tube,10
+Mycept,Miconazole 2%,cream,110,84,National Pharma,false,tube,10
+Nizoral 2%,Ketoconazole 2%,cream,180,138,Janssen Pakistan,false,tube,10
+Fucidin,Fusidic Acid 2%,cream,280,215,Leo Pharma,true,tube,10
+Bactroban,Mupirocin 2%,cream,380,292,GSK Pakistan,true,tube,10
+Soframycin,Framycetin 1%,cream,120,90,Sanofi Pakistan,true,tube,10
+Hirudoid,Heparinoid 0.3%,cream,280,215,Stiefel Pakistan,false,tube,10
+E45 Cream,Emollient Cream,cream,320,245,Reckitt Pakistan,false,tube,10
+Ciprodex,Ciprofloxacin + Dexamethasone,drops,280,215,Alcon Pakistan,true,bottle,5
+Otosporin,Neomycin + Polymyxin + Hydrocortisone,drops,155,118,GSK Pakistan,true,bottle,10
+Sofradex,Framycetin + Gramicidin + Dexamethasone,drops,180,138,Sanofi Pakistan,true,bottle,10
+Ciproxin HC Ear,Ciprofloxacin + Hydrocortisone,drops,220,168,Bayer Pakistan,true,bottle,5
+Xalatan,Latanoprost 0.005%,drops,780,600,Pfizer Pakistan,true,bottle,5
+Lumigan,Bimatoprost 0.03%,drops,880,675,Allergan Pakistan,true,bottle,5
+Betoptic,Betaxolol 0.5%,drops,380,292,Alcon Pakistan,true,bottle,5
+Cosopt,Dorzolamide + Timolol,drops,680,522,MSD Pakistan,true,bottle,5
+Voltaren Eye,Diclofenac Sodium 0.1%,drops,220,168,Novartis Pakistan,true,bottle,5
+FML,Fluorometholone 0.1%,drops,280,215,Allergan Pakistan,true,bottle,5
+Maxidex,Dexamethasone 0.1%,drops,220,168,Alcon Pakistan,true,bottle,5
+Polytrim,Polymyxin B + Trimethoprim,drops,185,142,Allergan Pakistan,true,bottle,5
+Tears Naturale,Carboxymethylcellulose 0.5%,drops,185,142,Alcon Pakistan,false,bottle,10
+Refresh Tears,Carboxymethylcellulose,drops,155,118,Allergan Pakistan,false,bottle,10
+Systane,Polyethylene Glycol 0.4%,drops,220,168,Alcon Pakistan,false,bottle,10
+Lacri-Lube,Mineral Oil + White Petrolatum,cream,185,142,Allergan Pakistan,false,tube,5
+Cifran Eye,Ciprofloxacin 0.3% Eye Drops,drops,130,100,Getz Pharma,true,bottle,10
+Vigamox,Moxifloxacin 0.5% Eye Drops,drops,280,215,Alcon Pakistan,true,bottle,5
+Diflucan 150,Fluconazole 150mg,capsule,280,215,Pfizer Pakistan,true,capsule,10
+Diflucan 50,Fluconazole 50mg,capsule,180,138,Pfizer Pakistan,true,capsule,10
+Sporanox 100,Itraconazole 100mg,capsule,380,292,Janssen Pakistan,true,capsule,10
+Nizoral 200,Ketoconazole 200mg,tablet,180,138,Janssen Pakistan,true,strip,10
+Lamisil 250,Terbinafine 250mg,tablet,420,322,Novartis Pakistan,true,strip,10
+Griseofulvin 500,Griseofulvin 500mg,tablet,120,90,National Pharma,true,strip,10
+Vfend 200,Voriconazole 200mg,tablet,2800,2150,Pfizer Pakistan,true,strip,5
+Monistat,Miconazole 200mg,suppository,280,215,Janssen Pakistan,true,strip,5
+Gyno-Daktarin,Miconazole Nitrate 400mg,suppository,320,245,Janssen Pakistan,true,strip,5
+Zithromax IV,Azithromycin 500mg,injection,780,600,Pfizer Pakistan,true,vial,5
+Meronem,Meropenem 1g,injection,1850,1420,AstraZeneca,true,vial,5
+Tienam,Imipenem + Cilastatin 500mg,injection,1650,1265,MSD Pakistan,true,vial,5
+Zinacef,Cefuroxime 750mg,injection,480,368,GSK Pakistan,true,vial,5
+Fortum,Ceftazidime 1g,injection,580,445,GSK Pakistan,true,vial,5
+Maxipime,Cefepime 1g,injection,680,522,BMS Pakistan,true,vial,5
+Vancomycin 500,Vancomycin 500mg,injection,780,600,Various,true,vial,5
+Tobramycin,Tobramycin 80mg,injection,280,215,Various,true,vial,5
+Amikacin 500,Amikacin 500mg,injection,380,292,Various,true,vial,5
+Metronidazole IV,Metronidazole 500mg,injection,180,138,Various,true,vial,5
+Vitamin C 500,Ascorbic Acid 500mg,tablet,45,34,National Pharma,false,strip,20
+Vitamin D3 1000,Cholecalciferol 1000IU,capsule,85,65,Various,false,strip,20
+Vitamin D3 5000,Cholecalciferol 5000IU,capsule,180,138,Various,false,capsule,15
+Calcimax Plus,Calcium + Vitamin D3,tablet,120,90,Sun Pharma,false,strip,20
+Osteocare,Calcium + Magnesium + Zinc,tablet,280,215,Vitabiotics,false,strip,15
+Folic Acid 5mg,Folic Acid 5mg,tablet,30,22,National Pharma,false,strip,20
+Ferrous Sulfate,Ferrous Sulfate 200mg,tablet,45,34,Various,false,strip,20
+Iron-D,Ferrous Fumarate + Folic Acid,tablet,85,65,Getz Pharma,false,strip,20
+Feroglobin,Iron + Folic Acid + B12,capsule,180,138,Vitabiotics,false,strip,15
+Prefolic,Folic Acid 0.4mg,tablet,55,42,GSK Pakistan,false,strip,20
+Neurobion,Vitamin B Complex,tablet,120,90,MSD Pakistan,false,strip,20
+Benerva,Thiamine 100mg,tablet,55,42,Roche Pakistan,false,strip,20
+Becozyme,Vitamin B Complex,tablet,85,65,Roche Pakistan,false,strip,20
+Supradyn,Multivitamin + Minerals,tablet,280,215,Bayer Pakistan,false,strip,15
+Centrum Adult,Multivitamin,tablet,320,245,Pfizer Pakistan,false,strip,15
+Vitamin E 400,Tocopherol 400IU,capsule,120,90,Various,false,capsule,15
+Zinc 25,Zinc Sulfate 25mg,tablet,65,50,National Pharma,false,strip,20
+Omega-3 1000,Fish Oil 1000mg,capsule,180,138,Various,false,capsule,15
+Primrose Oil,Evening Primrose Oil,capsule,280,215,Various,false,capsule,10
+Ovral-L,Levonorgestrel + Ethinyl Estradiol,tablet,95,72,Wyeth Pakistan,true,strip,10
+Nordette,Levonorgestrel + Ethinyl Estradiol,tablet,90,68,Wyeth Pakistan,true,strip,10
+Diane 35,Cyproterone + Ethinyl Estradiol,tablet,280,215,Bayer Pakistan,true,strip,10
+Yasmin,Drospirenone + Ethinyl Estradiol,tablet,380,292,Bayer Pakistan,true,strip,10
+Yaz,Drospirenone + Ethinyl Estradiol,tablet,420,322,Bayer Pakistan,true,strip,10
+Depo-Provera,Medroxyprogesterone 150mg,injection,350,268,Pfizer Pakistan,true,vial,5
+Premarin 0.625,Conjugated Estrogens 0.625mg,tablet,180,138,Wyeth Pakistan,true,strip,10
+Femoston 1/10,Estradiol + Dydrogesterone,tablet,350,268,Abbott Laboratories,true,strip,10
+Progyluton,Estradiol + Norgestrel,tablet,280,215,Bayer Pakistan,true,strip,10
+Clomid 50,Clomiphene Citrate 50mg,tablet,220,168,MSD Pakistan,true,strip,10
+Duphaston,Dydrogesterone 10mg,tablet,380,292,Abbott Laboratories,true,strip,10
+Utrogestan,Progesterone 200mg,capsule,420,322,Besins Pakistan,true,capsule,5
+Femilon,Desogestrel + Ethinyl Estradiol,tablet,220,168,Organon Pakistan,true,strip,10
+i-pill,Levonorgestrel 1.5mg,tablet,180,138,Various,true,tablet,10
+Postinor,Levonorgestrel 1.5mg,tablet,195,150,Gedeon Richter,true,tablet,10
+Amoxil Syrup,Amoxicillin 125mg/5ml,syrup,90,68,GSK Pakistan,true,bottle,10
+Brufen Syrup,Ibuprofen 100mg/5ml,syrup,95,72,Abbott Laboratories,false,bottle,15
+Panadol Syrup,Paracetamol 120mg/5ml,syrup,65,50,GSK Pakistan,false,bottle,15
+Flagyl Syrup,Metronidazole 200mg/5ml,syrup,75,57,Sanofi Pakistan,true,bottle,10
+Septran Syrup,Co-trimoxazole 240mg/5ml,syrup,65,50,GSK Pakistan,true,bottle,10
+Calpol,Paracetamol 250mg/5ml,syrup,90,68,GSK Pakistan,false,bottle,15
+Nurofen,Ibuprofen 150mg/5ml,syrup,120,90,Reckitt Pakistan,false,bottle,10
+Klaricid Susp,Clarithromycin 125mg/5ml,syrup,280,215,Abbott Laboratories,true,bottle,5
+Zithromax Susp,Azithromycin 200mg/5ml,syrup,280,215,Pfizer Pakistan,true,bottle,5
+Augmentin Susp,Amoxicillin + Clavulanate 228mg/5ml,syrup,220,168,GSK Pakistan,true,bottle,5
+Suprax Susp,Cefixime 100mg/5ml,syrup,180,138,Wyeth Pakistan,true,bottle,5
+Phenergan Syrup,Promethazine 5mg/5ml,syrup,85,65,Sanofi Pakistan,true,bottle,10
+Benadryl Syrup,Diphenhydramine 12.5mg/5ml,syrup,70,53,Pfizer Pakistan,false,bottle,15
+Robitussin,Guaifenesin 100mg/5ml,syrup,120,90,Pfizer Pakistan,false,bottle,10
+Mucosolvon,Ambroxol 15mg/5ml,syrup,155,118,Boehringer Ingelheim,false,bottle,10
+Mevacor 20,Lovastatin 20mg,tablet,155,118,MSD Pakistan,true,strip,10
+Lipostat 40,Pravastatin 40mg,tablet,280,215,BMS Pakistan,true,strip,10
+Lopid 600,Gemfibrozil 600mg,tablet,220,168,Pfizer Pakistan,true,strip,10
+Allopurinol 100,Allopurinol 100mg,tablet,45,34,Various,true,strip,15
+Allopurinol 300,Allopurinol 300mg,tablet,80,61,Various,true,strip,15
+Colchicine 0.5,Colchicine 0.5mg,tablet,85,65,Various,true,strip,10
+Probenecid,Probenecid 500mg,tablet,120,90,Various,true,strip,10
+Benzbromaron,Benzbromarone 100mg,tablet,220,168,Various,true,strip,10
+Aricept 10,Donepezil 10mg,tablet,750,575,Eisai Pakistan,true,strip,5
+Exelon 1.5,Rivastigmine 1.5mg,capsule,550,422,Novartis Pakistan,true,strip,5
+Namenda 10,Memantine 10mg,tablet,680,522,Lundbeck Pakistan,true,strip,5
+Paxil 20,Paroxetine 20mg,tablet,280,215,GSK Pakistan,true,strip,10
+Luvox 50,Fluvoxamine 50mg,tablet,280,215,Solvay Pharma,true,strip,10
+Wellbutrin 150,Bupropion 150mg,tablet,550,422,GSK Pakistan,true,strip,10
+Trazodone 50,Trazodone 50mg,tablet,165,126,Various,true,strip,10
+Modafinil 100,Modafinil 100mg,tablet,580,445,Various,true,strip,5
+Ritalin 10,Methylphenidate 10mg,tablet,380,292,Novartis Pakistan,true,strip,5
+Strattera 18,Atomoxetine 18mg,capsule,780,600,Lilly Pakistan,true,capsule,5
+Haldol 5,Haloperidol 5mg,tablet,85,65,Janssen Pakistan,true,strip,10
+Chlorpromazine 25,Chlorpromazine 25mg,tablet,55,42,Various,true,strip,10
+Piportil,Perphenazine 4mg,tablet,95,72,Sanofi Pakistan,true,strip,10
+Clozaril 100,Clozapine 100mg,tablet,380,292,Novartis Pakistan,true,strip,5
+Abilify 10,Aripiprazole 10mg,tablet,750,575,Otsuka Pakistan,true,strip,5
+Invega 6,Paliperidone 6mg,tablet,880,675,Janssen Pakistan,true,strip,5
+Stelazine 5,Trifluoperazine 5mg,tablet,85,65,GSK Pakistan,true,strip,10
+Fluanxol 0.5,Flupentixol 0.5mg,tablet,180,138,Lundbeck Pakistan,true,strip,10
+Sinemet 25/100,Carbidopa + Levodopa,tablet,220,168,MSD Pakistan,true,strip,10
+Mirapex 0.25,Pramipexole 0.25mg,tablet,280,215,Boehringer Ingelheim,true,strip,10
+Requip 0.25,Ropinirole 0.25mg,tablet,320,245,GSK Pakistan,true,strip,10
+Azilect 1,Rasagiline 1mg,tablet,780,600,Teva Pakistan,true,strip,5
+Comtan,Entacapone 200mg,tablet,580,445,Novartis Pakistan,true,strip,5
+Baclofen 10,Baclofen 10mg,tablet,85,65,Various,true,strip,10
+Tizanidine 4,Tizanidine 4mg,tablet,120,90,Novartis Pakistan,true,strip,10
+Dantrolene,Dantrolene 25mg,capsule,280,215,Various,true,capsule,5
+Robaxin,Methocarbamol 750mg,tablet,185,142,Pfizer Pakistan,true,strip,10
+Myoril,Thiocolchicoside 4mg,capsule,180,138,Italfarmaco,true,strip,10
+Robax Platinum,Ibuprofen + Methocarbamol,tablet,220,168,Pfizer Pakistan,true,strip,10
+Urispas,Flavoxate 200mg,tablet,155,118,Recordati Pakistan,true,strip,10
+Vesicare 5,Solifenacin 5mg,tablet,580,445,Astellas Pharma,true,strip,5
+Enablex 7.5,Darifenacin 7.5mg,tablet,480,368,Novartis Pakistan,true,strip,5
+Flomax 0.4,Tamsulosin 0.4mg,capsule,380,292,Boehringer Ingelheim,true,capsule,10
+Xatral 10,Alfuzosin 10mg,tablet,320,245,Sanofi Pakistan,true,strip,10
+Proscar 5,Finasteride 5mg,tablet,380,292,MSD Pakistan,true,strip,10
+Avodart 0.5,Dutasteride 0.5mg,capsule,480,368,GSK Pakistan,true,capsule,10
+Cialis 10,Tadalafil 10mg,tablet,680,522,Lilly Pakistan,true,strip,5
+Viagra 50,Sildenafil 50mg,tablet,580,445,Pfizer Pakistan,true,strip,5
+Levitra 10,Vardenafil 10mg,tablet,680,522,Bayer Pakistan,true,strip,5
+Caverject,Alprostadil 10mcg,injection,1850,1420,Pfizer Pakistan,true,vial,2
+Speman,Herbal Tonic for Male Health,tablet,280,215,Himalaya,false,strip,10
+Macrobid,Nitrofurantoin 100mg,capsule,185,142,Procter Gamble,true,capsule,10
+Septran Adult,Co-trimoxazole 480mg,tablet,65,50,GSK Pakistan,true,strip,15
+Trimethoprim,Trimethoprim 200mg,tablet,80,61,Various,true,strip,10
+Monurol,Fosfomycin 3g,sachet,380,292,Various,true,sachet,5
+Rocaltrol 0.25,Calcitriol 0.25mcg,capsule,285,218,Roche Pakistan,true,capsule,10
+Alfacalcidol 0.25,Alfacalcidol 0.25mcg,capsule,220,168,Various,true,capsule,10
+Miacalcic,Calcitonin Salmon 100IU,injection,680,522,Novartis Pakistan,true,vial,5
+Fosamax 70,Alendronate 70mg,tablet,350,268,MSD Pakistan,true,strip,5
+Actonel 35,Risedronate 35mg,tablet,380,292,Warner Chilcott,true,strip,5
+Protelos,Strontium Ranelate 2g,sachet,580,445,Servier Pakistan,true,sachet,5
+Prolia,Denosumab 60mg,injection,6500,5000,Amgen Pakistan,true,vial,2
+Zometa,Zoledronic Acid 4mg,injection,2800,2150,Novartis Pakistan,true,vial,2
+Miacalcic NS,Calcitonin Salmon 200IU,drops,480,368,Novartis Pakistan,true,bottle,5
+Roaccutane 10,Isotretinoin 10mg,capsule,680,522,Roche Pakistan,true,capsule,5
+Roaccutane 20,Isotretinoin 20mg,capsule,950,730,Roche Pakistan,true,capsule,5
+Retin-A 0.025%,Tretinoin 0.025%,cream,185,142,Janssen Pakistan,true,tube,10
+Retin-A 0.05%,Tretinoin 0.05%,cream,220,168,Janssen Pakistan,true,tube,10
+Differin 0.1%,Adapalene 0.1%,cream,280,215,Galderma Pakistan,true,tube,10
+Skinoren,Azelaic Acid 20%,cream,320,245,Intendis Pakistan,true,tube,10
+Dalacin T,Clindamycin 1%,solution,220,168,Pfizer Pakistan,true,bottle,10
+Benzamycin,Benzoyl Peroxide + Erythromycin,cream,280,215,Sanofi Pakistan,true,tube,10
+Cutivate,Fluticasone Propionate 0.05%,cream,220,168,GSK Pakistan,true,tube,10
+Protopic 0.03%,Tacrolimus 0.03%,cream,680,522,Astellas Pharma,true,tube,5
+Elidel 1%,Pimecrolimus 1%,cream,580,445,Novartis Pakistan,true,tube,5
+Clobex,Clobetasol Shampoo 0.05%,drops,380,292,Galderma Pakistan,true,bottle,5
+Capasal,Coal Tar + Salicylic Acid,drops,220,168,Dermal Pakistan,false,bottle,10
+Denorex,Coal Tar Shampoo,drops,180,138,Whitehall Pakistan,false,bottle,10
+Selsun,Selenium Sulfide 2.5%,drops,220,168,Abbott Laboratories,false,bottle,10
+T-Gel,Coal Tar 0.5%,drops,280,215,Neutrogena Pakistan,false,bottle,10
+Ketovate,Ketoconazole 2% Shampoo,drops,180,138,Crawford Pakistan,false,bottle,10
+Minoxidil 2%,Minoxidil 2%,drops,280,215,Various,false,bottle,10
+Minoxidil 5%,Minoxidil 5%,drops,380,292,Various,true,bottle,10
+Propecia 1,Finasteride 1mg,tablet,320,245,MSD Pakistan,true,strip,10
+Regaine Extra,Minoxidil 5% Foam,drops,680,522,Johnson Pakistan,false,bottle,5
+Pantene Hair Fall,Panthenol + Zinc Pyrithione,drops,380,292,P&G Pakistan,false,bottle,10
+Cellcept 500,Mycophenolate Mofetil 500mg,capsule,1850,1420,Roche Pakistan,true,capsule,5
+Imuran 50,Azathioprine 50mg,tablet,480,368,GSK Pakistan,true,strip,5
+Sandimmun 100,Cyclosporine 100mg,capsule,1650,1265,Novartis Pakistan,true,capsule,5
+Prograf 1,Tacrolimus 1mg,capsule,1950,1496,Astellas Pharma,true,capsule,5
+Hydroxychloroquine,Hydroxychloroquine 200mg,tablet,180,138,Sanofi Pakistan,true,strip,10
+Plaquenil 200,Hydroxychloroquine 200mg,tablet,185,142,Sanofi Pakistan,true,strip,10
+Methotrexate 2.5,Methotrexate 2.5mg,tablet,85,65,Various,true,strip,5
+Arava 20,Leflunomide 20mg,tablet,380,292,Sanofi Pakistan,true,strip,5
+Enbrel 25,Etanercept 25mg,injection,15000,11500,Pfizer Pakistan,true,vial,2
+Remicade,Infliximab 100mg,injection,28000,21500,Janssen Pakistan,true,vial,2
+Humira 40,Adalimumab 40mg,injection,22000,16900,Abbott Laboratories,true,vial,2
+Trental 400,Pentoxifylline 400mg,tablet,155,118,Sanofi Pakistan,true,strip,10
+Actovegin,Deproteinized Calf Blood Extract,injection,680,522,Nycomed Pakistan,true,vial,5
+Lioresal 10,Baclofen 10mg,tablet,90,68,Novartis Pakistan,true,strip,10
+Daflon 500,Diosmin + Hesperidin,tablet,320,245,Servier Pakistan,false,strip,10
+Cyclo-3 Fort,Ruscus + Hesperidin + Ascorbic Acid,capsule,280,215,Pierre Fabre,false,capsule,10
+Detralex,Diosmin + Hesperidin 500mg,tablet,320,245,Servier Pakistan,false,strip,10
+Caelyx,Doxorubicin HCl Liposomal,injection,25000,19200,Janssen Pakistan,true,vial,2
+Xeloda 500,Capecitabine 500mg,tablet,8500,6527,Roche Pakistan,true,strip,2
+Taxol,Paclitaxel 30mg,injection,4500,3457,BMS Pakistan,true,vial,2
+Gemzar,Gemcitabine 1g,injection,3800,2919,Lilly Pakistan,true,vial,2
+Avastin,Bevacizumab 100mg,injection,22000,16900,Roche Pakistan,true,vial,2
+Herceptin,Trastuzumab 440mg,injection,38000,29192,Roche Pakistan,true,vial,2
+Zofran 8,Ondansetron 8mg,tablet,380,292,GSK Pakistan,true,strip,10
+Kytril,Granisetron 1mg,tablet,480,368,Roche Pakistan,true,strip,5
+Emend 80,Aprepitant 80mg,capsule,1850,1420,MSD Pakistan,true,capsule,5
+Navelbine 20,Vinorelbine 20mg,capsule,3500,2688,Pierre Fabre,true,capsule,2
+Iressa 250,Gefitinib 250mg,tablet,12000,9216,AstraZeneca,true,strip,2
+Tarceva 150,Erlotinib 150mg,tablet,18000,13824,Roche Pakistan,true,strip,2
+Gleevec 400,Imatinib 400mg,tablet,22000,16896,Novartis Pakistan,true,strip,2
+Glivec 100,Imatinib 100mg,tablet,8500,6528,Novartis Pakistan,true,strip,2
+Tasigna 150,Nilotinib 150mg,capsule,16000,12288,Novartis Pakistan,true,capsule,2
+Zometa 4mg,Zoledronic Acid 4mg,injection,2500,1920,Novartis Pakistan,true,vial,2
+Procrit 40000,Epoetin Alfa 40000IU,injection,5500,4224,Janssen Pakistan,true,vial,2
+Neupogen,Filgrastim 300mcg,injection,3800,2918,Amgen Pakistan,true,vial,2
+Neulasta,Pegfilgrastim 6mg,injection,12000,9216,Amgen Pakistan,true,vial,2
+Aranesp,Darbepoetin Alfa 40mcg,injection,4800,3686,Amgen Pakistan,true,vial,2
+Rituxan,Rituximab 500mg,injection,38000,29184,Roche Pakistan,true,vial,2
+Dexamethasone IV,Dexamethasone 4mg,injection,95,72,Various,true,vial,10
+Hydrocortisone IV,Hydrocortisone 100mg,injection,155,118,Pfizer Pakistan,true,vial,10
+Solumedrol IV,Methylprednisolone 500mg,injection,580,445,Pfizer Pakistan,true,vial,5
+Furosemide IV,Furosemide 20mg,injection,55,42,Various,true,vial,10
+Diazepam IV,Diazepam 10mg,injection,65,50,Roche Pakistan,true,vial,10
+Morphine 10,Morphine Sulfate 10mg,injection,155,118,Various,true,vial,5
+Pethidine 50,Pethidine 50mg,injection,95,72,Various,true,vial,5
+Fentanyl 0.05,Fentanyl 0.05mg,injection,280,215,Janssen Pakistan,true,vial,5
+Ketamine 500,Ketamine 500mg,injection,320,245,Pfizer Pakistan,true,vial,5
+Atropine 0.6,Atropine Sulfate 0.6mg,injection,45,34,Various,true,vial,10
+Adrenaline,Epinephrine 1mg,injection,85,65,Various,true,vial,10
+Dopamine,Dopamine 200mg,injection,120,90,Various,true,vial,5
+Dobutamine,Dobutamine 250mg,injection,185,142,Various,true,vial,5
+Noradrenaline,Norepinephrine 4mg,injection,155,118,Various,true,vial,5
+Sodium Bicarb 8.4%,Sodium Bicarbonate 8.4%,injection,65,50,Various,true,vial,10
+Ringer Lactate,Ringer Lactate Solution,injection,120,90,Various,true,vial,20
+Normal Saline 1L,Sodium Chloride 0.9% 1000ml,injection,110,84,Various,true,vial,20
+Dextrose 5%,Glucose 5% 500ml,injection,95,72,Various,true,vial,20
+Dextrose 50%,Glucose 50% 50ml,injection,55,42,Various,true,vial,10
+Potassium Chloride,KCl 10mEq 5ml,injection,35,26,Various,true,vial,10
+Magnesium Sulfate,MgSO4 50% 10ml,injection,45,34,Various,true,vial,10
+Calcium Gluconate,Calcium Gluconate 10% 10ml,injection,55,42,Various,true,vial,10
+Aminophylline,Aminophylline 250mg,injection,65,50,Various,true,vial,10
+Ranitidine IV,Ranitidine 50mg,injection,55,42,Various,true,vial,10
+Ondansetron IV,Ondansetron 8mg,injection,120,90,GSK Pakistan,true,vial,10
+Metoclopramide IV,Metoclopramide 10mg,injection,45,34,Various,true,vial,10
+Diclofenac IV,Diclofenac 75mg,injection,75,57,Novartis Pakistan,true,vial,10
+Ketorolac IV,Ketorolac 30mg,injection,85,65,Roche Pakistan,true,vial,10
+Omeprazole IV,Omeprazole 40mg,injection,185,142,AstraZeneca,true,vial,10
+Pantoprazole IV,Pantoprazole 40mg,injection,220,168,Abbott Laboratories,true,vial,10
+Ceftriaxone 500mg,Ceftriaxone 500mg,injection,380,292,Various,true,vial,10
+Levofloxacin IV,Levofloxacin 500mg,injection,320,245,Sanofi Pakistan,true,vial,5
+Amikacin 250,Amikacin 250mg,injection,220,168,Various,true,vial,10
+Gentamicin 80,Gentamicin 80mg,injection,65,50,Various,true,vial,10
+Clindamycin IV,Clindamycin 600mg,injection,185,142,Pfizer Pakistan,true,vial,5
+Acyclovir 250,Acyclovir 250mg,injection,380,292,GSK Pakistan,true,vial,5
+Zovirax 800,Acyclovir 800mg,tablet,280,215,GSK Pakistan,true,strip,10
+Valtrex 500,Valacyclovir 500mg,tablet,580,445,GSK Pakistan,true,strip,5
+Famvir 250,Famciclovir 250mg,tablet,580,445,Novartis Pakistan,true,strip,5
+Tamiflu 75,Oseltamivir 75mg,capsule,580,445,Roche Pakistan,true,capsule,5
+Relenza,Zanamivir 5mg,inhaler,480,368,GSK Pakistan,true,inhaler,5
+Plaquenil IV,Hydroxychloroquine 200mg,tablet,195,150,Sanofi Pakistan,true,strip,5
+Kaletra,Lopinavir + Ritonavir,tablet,1850,1420,Abbott Laboratories,true,strip,2
+Reyataz 150,Atazanavir 150mg,capsule,2800,2150,BMS Pakistan,true,capsule,2
+Viread,Tenofovir 300mg,tablet,1200,921,Gilead Pakistan,true,strip,2
+Truvada,Tenofovir + Emtricitabine,tablet,1650,1267,Gilead Pakistan,true,strip,2
+Epivir,Lamivudine 150mg,tablet,380,292,GSK Pakistan,true,strip,5
+Combivir,Zidovudine + Lamivudine,tablet,580,445,GSK Pakistan,true,strip,2
+Tivicay 50,Dolutegravir 50mg,tablet,1800,1382,GSK Pakistan,true,strip,2
+Sovaldi 400,Sofosbuvir 400mg,tablet,5500,4224,Gilead Pakistan,true,strip,2
+Harvoni,Sofosbuvir + Ledipasvir,tablet,12000,9216,Gilead Pakistan,true,strip,2
+Daklinza 60,Daclatasvir 60mg,tablet,3800,2918,BMS Pakistan,true,strip,2
+Ribavirin 200,Ribavirin 200mg,capsule,280,215,Various,true,capsule,5
+Pegasys,Peginterferon Alfa-2a 180mcg,injection,4500,3456,Roche Pakistan,true,vial,2
+Betnesol Eye,Betamethasone 0.1% Eye Drops,drops,120,90,GSK Pakistan,true,bottle,5
+Fucidin H,Fusidic Acid + Hydrocortisone,cream,280,215,Leo Pharma,true,tube,10
+Stieprox,Ciclopirox 1.5% Shampoo,drops,280,215,Stiefel Pakistan,true,bottle,5
+Daktacort,Miconazole + Hydrocortisone,cream,155,118,Janssen Pakistan,true,tube,10
+Tinaderm,Tolnaftate 1%,cream,120,90,Schering Pakistan,false,tube,10
+Mycostatin,Nystatin 100000IU,cream,155,118,Pfizer Pakistan,true,tube,10
+Nystatin Oral,Nystatin 100000IU,drops,120,90,Pfizer Pakistan,true,bottle,10
+Daktarin Oral,Miconazole 20mg/ml,drops,155,118,Janssen Pakistan,true,bottle,10
+Rinstead,Benzocaine + Cetylpyridinium,drops,120,90,Schering Pakistan,false,bottle,10
+Corsodyl,Chlorhexidine 0.2% Mouthwash,drops,155,118,GSK Pakistan,false,bottle,10
+Betadine,Povidone Iodine 10%,drops,95,72,Mundi Pharma,false,bottle,15
+Savlon,Chlorhexidine + Cetrimide,cream,85,65,Johnson Pakistan,false,tube,15
+Dettol Antiseptic,Chloroxylenol 4.8%,drops,95,72,Reckitt Pakistan,false,bottle,15
+Gentian Violet,Crystal Violet 1%,drops,35,26,National Pharma,false,bottle,15
+Hydrogen Peroxide,Hydrogen Peroxide 3%,drops,45,34,National Pharma,false,bottle,15
+Spirit 70%,Isopropyl Alcohol 70%,drops,35,26,National Pharma,false,bottle,20
+Medicated Gauze,Paraffin Gauze,strip,120,90,Smith Nephew,false,strip,10
+Primapore,Non-Woven Dressing,strip,155,118,Smith Nephew,false,strip,10
+Elastoplast,Elastic Adhesive Bandage,strip,95,72,Beiersdorf Pakistan,false,strip,20
+Micropore,Paper Tape 1inch,strip,45,34,3M Pakistan,false,strip,20
+Tegaderm,Transparent Film Dressing,strip,180,138,3M Pakistan,false,strip,10
+Kaltostat,Calcium Sodium Alginate,strip,280,215,ConvaTec Pakistan,false,strip,5
+Aquacel,Hydrofiber Dressing,strip,380,292,ConvaTec Pakistan,false,strip,5
+Mepitel,Silicone Wound Contact Layer,strip,480,368,Molnlycke Pakistan,false,strip,5
+Flamazine,Silver Sulfadiazine 1%,cream,280,215,Smith Nephew,true,tube,5
+Intrasite Gel,Amorphous Hydrogel,tube,320,245,Smith Nephew,false,tube,5
+Carbopol,Carbomer 0.2%,drops,155,118,Various,false,bottle,10
+Lacri-Lube Eye,Mineral Oil Lubricant Eye,cream,155,118,Allergan Pakistan,false,tube,10
+Visine,Tetrahydrozoline 0.05%,drops,85,65,Johnson Pakistan,false,bottle,15
+Clear Eyes,Naphazoline 0.012%,drops,75,57,Prestige Brands,false,bottle,15
+Naphcon A,Naphazoline + Pheniramine,drops,95,72,Alcon Pakistan,false,bottle,10
+Tobramycin Eye,Tobramycin 0.3% Eye Drops,drops,155,118,Alcon Pakistan,true,bottle,10
+Gentamicin Eye,Gentamicin 0.3% Eye Drops,drops,95,72,Various,true,bottle,10
+Chloramphenicol Eye,Chloramphenicol 0.5% Eye Drops,drops,75,57,Various,true,bottle,10
+Pilocarpine 2%,Pilocarpine 2% Eye Drops,drops,120,90,Alcon Pakistan,true,bottle,5
+Travatan,Travoprost 0.004% Eye Drops,drops,780,600,Alcon Pakistan,true,bottle,5
+Alphagan,Brimonidine 0.2% Eye Drops,drops,380,292,Allergan Pakistan,true,bottle,5
+Azopt,Brinzolamide 1% Eye Drops,drops,480,368,Alcon Pakistan,true,bottle,5
+Trusopt,Dorzolamide 2% Eye Drops,drops,380,292,MSD Pakistan,true,bottle,5
+Timoptol,Timolol 0.5% Eye Drops,drops,220,168,MSD Pakistan,true,bottle,10
+Pred Forte,Prednisolone 1% Eye Drops,drops,220,168,Allergan Pakistan,true,bottle,5
+Lotemax,Loteprednol 0.5% Eye Drops,drops,380,292,Bausch Pakistan,true,bottle,5
+Acular,Ketorolac 0.5% Eye Drops,drops,280,215,Allergan Pakistan,true,bottle,5

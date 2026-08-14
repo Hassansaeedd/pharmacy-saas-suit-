@@ -12,7 +12,8 @@ import {
   Boxes,
   Calendar,
   X,
-  Download
+  Download,
+  Trash2
 } from 'lucide-react';
 
 export const InventoryPage: React.FC = () => {
@@ -144,6 +145,19 @@ export const InventoryPage: React.FC = () => {
     }
   };
 
+  const handleClearAllMedicines = async () => {
+    if (!window.confirm("⚠️ WARNING: Are you sure you want to delete ALL medicines from your catalog? This action will clear your catalog and inventory so you can start fresh.")) {
+      return;
+    }
+    try {
+      const res = await api.delete('/inventory/medicines/clear-all');
+      alert(res.data.message || 'All medicines cleared successfully.');
+      fetchMedicines();
+    } catch (err: any) {
+      alert(err.response?.data?.detail || 'Failed to clear medicines.');
+    }
+  };
+
   const getExpiryBadge = (dateStr?: string) => {
     if (!dateStr) return null;
     const expiry = new Date(dateStr);
@@ -201,6 +215,15 @@ export const InventoryPage: React.FC = () => {
           >
             <FileSpreadsheet className="w-4 h-4 text-green-600" />
             <span>Import CSV</span>
+          </button>
+
+          <button
+            onClick={handleClearAllMedicines}
+            className="px-3.5 py-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 text-xs font-semibold flex items-center gap-1.5 transition"
+            title="Delete all medicines from database"
+          >
+            <Trash2 className="w-4 h-4" />
+            <span>Clear All Medicines</span>
           </button>
 
           <button

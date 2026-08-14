@@ -288,6 +288,19 @@ export const POSPage: React.FC = () => {
     window.print();
   };
 
+  const handleClearAllMedicines = async () => {
+    if (!window.confirm("⚠️ WARNING: Are you sure you want to delete ALL medicines from your catalog? This action will clear your catalog and inventory so you can start fresh.")) {
+      return;
+    }
+    try {
+      const res = await api.delete('/inventory/medicines/clear-all');
+      alert(res.data.message || 'All medicines cleared successfully.');
+      fetchMedicines();
+    } catch (err: any) {
+      alert(err.response?.data?.detail || 'Failed to clear medicines.');
+    }
+  };
+
   return (
     <div className="space-y-6">
       {/* Thermal Print CSS */}
@@ -320,23 +333,34 @@ export const POSPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-1 p-1 bg-white/70 backdrop-blur-md border border-gray-200/80 rounded-2xl shadow-sm">
+        <div className="flex items-center gap-2">
           <button
-            onClick={() => setActiveTab('pos')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 ${
-              activeTab === 'pos' ? 'bg-green-600 text-white shadow-md shadow-green-500/20' : 'text-gray-500 hover:text-gray-700 hover:bg-white'
-            }`}
+            onClick={handleClearAllMedicines}
+            className="px-3 py-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 text-xs font-semibold flex items-center gap-1.5 transition"
+            title="Delete all medicines from database"
           >
-            <ShoppingCart className="w-3.5 h-3.5" /> POS Counter
+            <Trash2 className="w-3.5 h-3.5" />
+            <span>Clear All Medicines</span>
           </button>
-          <button
-            onClick={() => setActiveTab('history')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 ${
-              activeTab === 'history' ? 'bg-green-600 text-white shadow-md shadow-green-500/20' : 'text-gray-500 hover:text-gray-700 hover:bg-white'
-            }`}
-          >
-            <History className="w-3.5 h-3.5" /> Sales History
-          </button>
+
+          <div className="flex items-center gap-1 p-1 bg-white/70 backdrop-blur-md border border-gray-200/80 rounded-2xl shadow-sm">
+            <button
+              onClick={() => setActiveTab('pos')}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 ${
+                activeTab === 'pos' ? 'bg-green-600 text-white shadow-md shadow-green-500/20' : 'text-gray-500 hover:text-gray-700 hover:bg-white'
+              }`}
+            >
+              <ShoppingCart className="w-3.5 h-3.5" /> POS Counter
+            </button>
+            <button
+              onClick={() => setActiveTab('history')}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 ${
+                activeTab === 'history' ? 'bg-green-600 text-white shadow-md shadow-green-500/20' : 'text-gray-500 hover:text-gray-700 hover:bg-white'
+              }`}
+            >
+              <History className="w-3.5 h-3.5" /> Sales History
+            </button>
+          </div>
         </div>
       </div>
 

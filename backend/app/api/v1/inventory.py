@@ -4,14 +4,14 @@ from datetime import date, timedelta
 from typing import List, Optional
 from fastapi import APIRouter, Depends, HTTPException, status, UploadFile, File, Query
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select, or_, func
+from sqlalchemy import select, or_, func, delete
 from sqlalchemy.orm import selectinload
 
 from app.core.db import get_db
 from app.core.deps import get_current_user
 from app.models.user import User
 from app.models.inventory import Supplier, Medicine, Batch, StockMovement
-from app.models.sales import PurchaseOrder, PurchaseOrderItem
+from app.models.sales import PurchaseOrder, PurchaseOrderItem, SaleItem
 from app.schemas.inventory import (
     SupplierCreate, SupplierResponse,
     MedicineCreate, MedicineUpdate, MedicineResponse,
@@ -202,6 +202,31 @@ async def update_medicine(
     await db.commit()
     await db.refresh(med)
     return await get_medicine(medicine_id, current_user, db)
+
+@router.delete("/medicines/clear-all", response_model=dict)
+async def clear_all_medicines(
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db)
+):
+    med_res = await db.execute(select(Medicine.id).where(Medicine.business_id == current_user.business_id))
+    med_ids = med_res.scalars().all()
+    
+    if not med_ids:
+        return {"deleted_count": 0, "message": "No medicines found to clear."}
+        
+    await db.execute(delete(SaleItem).where(SaleItem.medicine_id.in_(med_ids)))
+    await db.execute(delete(PurchaseOrderItem).where(PurchaseOrderItem.medicine_id.in_(med_ids)))
+    
+    batch_res = await db.execute(select(Batch.id).where(Batch.business_id == current_user.business_id))
+    batch_ids = batch_res.scalars().all()
+    if batch_ids:
+        await db.execute(delete(StockMovement).where(StockMovement.batch_id.in_(batch_ids)))
+    
+    await db.execute(delete(Batch).where(Batch.business_id == current_user.business_id))
+    result = await db.execute(delete(Medicine).where(Medicine.business_id == current_user.business_id))
+    
+    await db.commit()
+    return {"deleted_count": result.rowcount, "message": f"Successfully deleted all {result.rowcount} medicines and associated inventory."}
 
 @router.delete("/medicines/{medicine_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_medicine(
