@@ -48,10 +48,10 @@ export const OnboardingPage: React.FC = () => {
       <div className="sm:mx-auto sm:w-full sm:max-w-2xl mb-8 text-center">
         <div className="flex justify-center mb-5">
           <div className="flex items-center gap-3">
-            <img src="/curarx_logo.jpg" alt="CuraRx Logo" className="w-12 h-12 rounded-2xl border border-green-300 shadow-lg object-cover" />
+            <img src="/pharmapulse_logo.jpg" alt="PharmaPulse Logo" className="w-12 h-12 rounded-2xl border border-green-300 shadow-lg object-cover" />
             <div className="text-left">
-              <h1 className="font-extrabold text-green-900 text-xl">CuraRx ERP</h1>
-              <p className="text-green-600 text-xs font-semibold">Industrial Pharmacy Suite & POS</p>
+              <h1 className="font-extrabold text-green-900 text-xl">PharmaPulse</h1>
+              <p className="text-green-600 text-xs font-semibold">Pharmacy Suite & POS</p>
             </div>
           </div>
         </div>

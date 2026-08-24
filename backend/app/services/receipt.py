@@ -153,7 +153,7 @@ def generate_pdf_receipt(sale: Sale, business: Business) -> bytes:
 
     # Footer
     story.append(Paragraph("Thank you for your visit!", subtitle_style))
-    story.append(Paragraph("Powered by CuraRx ERP Suite", ParagraphStyle('Foot', parent=subtitle_style, fontSize=8, textColor=colors.HexColor('#94a3b8'))))
+    story.append(Paragraph("Powered by PharmaPulse - Pharmacy Suite", ParagraphStyle('Foot', parent=subtitle_style, fontSize=8, textColor=colors.HexColor('#94a3b8'))))
 
     doc.build(story)
     pdf_data = buffer.getvalue()

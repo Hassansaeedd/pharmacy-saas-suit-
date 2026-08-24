@@ -71,8 +71,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         {/* Mobile Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-100 md:hidden">
           <div className="flex items-center gap-2">
-            <img src="/curarx_logo.jpg" alt="CuraRx Logo" className="w-7 h-7 rounded-lg object-cover border border-green-300" />
-            <span className="font-extrabold text-green-900 text-sm">CuraRx</span>
+            <img src="/pharmapulse_logo.jpg" alt="PharmaPulse Logo" className="w-7 h-7 rounded-lg object-cover border border-green-300" />
+            <span className="font-extrabold text-green-900 text-sm">PharmaPulse</span>
           </div>
           <button
             onClick={onClose}

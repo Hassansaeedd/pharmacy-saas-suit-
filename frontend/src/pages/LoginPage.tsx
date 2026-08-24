@@ -49,10 +49,10 @@ export const LoginPage: React.FC = () => {
         {/* Logo Header */}
         <div className="relative z-10 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src="/curarx_logo.jpg" alt="CuraRx Logo" className="w-12 h-12 rounded-2xl border border-white/30 shadow-lg object-cover" />
+            <img src="/pharmapulse_logo.jpg" alt="PharmaPulse Logo" className="w-12 h-12 rounded-2xl border border-white/30 shadow-lg object-cover" />
             <div>
-              <h1 className="text-xl font-extrabold text-white tracking-tight">CuraRx ERP</h1>
-              <p className="text-green-200 text-xs font-medium">Industrial Pharmacy Suite & POS</p>
+              <h1 className="text-xl font-extrabold text-white tracking-tight">PharmaPulse</h1>
+              <p className="text-green-200 text-xs font-medium">Pharmacy Suite & POS</p>
             </div>
           </div>
 

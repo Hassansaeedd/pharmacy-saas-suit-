@@ -25,10 +25,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onToggleSidebar }) => {
 
         {/* Logo + Brand */}
         <div className="flex items-center gap-2.5">
-          <img src="/curarx_logo.jpg" alt="CuraRx Logo" className="w-9 h-9 rounded-xl object-cover shadow-md shadow-green-500/20 border border-green-300/40" />
+          <img src="/pharmapulse_logo.jpg" alt="PharmaPulse Logo" className="w-9 h-9 rounded-xl object-cover shadow-md shadow-green-500/20 border border-green-300/40" />
           <div>
             <h1 className="font-extrabold text-green-900 tracking-tight leading-none flex items-center gap-2 text-base">
-              CuraRx
+              PharmaPulse
               <span className="text-[10px] font-bold tracking-wider px-2 py-0.5 rounded-full bg-green-100 text-green-700 border border-green-200 uppercase">
                 {isSuperAdmin ? 'ADMIN' : 'SUITE'}
               </span>

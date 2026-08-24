@@ -53,7 +53,7 @@ export const DashboardPage: React.FC = () => {
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 border border-white/20 text-white/90 text-xs font-semibold mb-3">
               <Sparkles className="w-3.5 h-3.5" />
-              Welcome to CuraRx ERP
+              Welcome to PharmaPulse
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
               {business?.name}

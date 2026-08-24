@@ -83,4 +83,4 @@ app.include_router(customers.router, prefix=f"{settings.API_V1_STR}/customers", 
 
 @app.get("/health")
 async def health_check():
-    return {"status": "healthy", "service": "CuraRx Backend API", "currency": "PKR"}
+    return {"status": "healthy", "service": "PharmaPulse Backend API", "currency": "PKR"}

@@ -912,7 +912,7 @@ export const POSPage: React.FC = () => {
 
               <div className="text-center pt-3 border-t border-gray-200 text-[11px] text-gray-400 space-y-1">
                 <p className="font-medium text-gray-600">Thank you for visiting {business?.name}!</p>
-                <p>Non-returnable if seal broken · Powered by CuraRx ERP Suite</p>
+                <p>Non-returnable if seal broken · Powered by PharmaPulse - Pharmacy Suite</p>
               </div>
             </div>
 
